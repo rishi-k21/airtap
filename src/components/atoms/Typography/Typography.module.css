@@ -1,0 +1,90 @@
+.text {
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--text-body);
+}
+
+/* Headings — Figma "Font Config/H1..H6" + "Title/*" text styles */
+.h1 {
+  font-size: var(--font-config-h1-font-size);
+  line-height: var(--font-config-h1-line-height);
+  font-weight: var(--font-config-h1-font-weight);
+  letter-spacing: var(--font-config-h1-letter-spacing);
+  color: var(--text-title);
+}
+.h2 {
+  font-size: var(--font-config-h2-font-size);
+  line-height: var(--font-config-h2-line-height);
+  font-weight: var(--font-config-h2-font-weight);
+  letter-spacing: var(--font-config-h2-letter-spacing);
+  color: var(--text-title);
+}
+.h3 {
+  font-size: var(--font-config-h3-font-size);
+  line-height: var(--font-config-h3-line-height);
+  font-weight: var(--font-config-h3-font-weight);
+  letter-spacing: var(--font-config-h3-letter-spacing);
+  color: var(--text-title);
+}
+.h4 {
+  font-size: var(--font-config-h4-font-size);
+  line-height: var(--font-config-h4-line-height);
+  font-weight: var(--font-config-h4-font-weight);
+  color: var(--text-title);
+}
+.h5 {
+  font-size: var(--font-config-h5-font-size);
+  line-height: var(--font-config-h5-line-height);
+  font-weight: var(--font-config-h5-font-weight);
+  letter-spacing: var(--font-config-h5-letter-spacing);
+  color: var(--text-title);
+}
+.h6 {
+  font-size: var(--font-config-h6-font-size);
+  line-height: var(--font-config-h6-line-height);
+  font-weight: var(--font-config-h6-font-weight);
+  color: var(--text-title);
+}
+
+/* Body — Figma "Font Config/Body*" + "Body/*" text styles */
+.body {
+  font-size: var(--font-config-body-font-size);
+  line-height: var(--font-config-body-line-height);
+  font-weight: var(--font-config-body-font-weight);
+}
+.bodySmall {
+  font-size: var(--font-config-body-small-font-size);
+  line-height: var(--font-config-body-small-line-height);
+  font-weight: var(--font-config-body-small-font-weight);
+}
+.bodyXSmall {
+  font-size: var(--font-config-body-x-small-font-size);
+  line-height: var(--font-config-body-x-small-line-height);
+  font-weight: var(--font-config-body-x-small-font-weight);
+}
+.caption {
+  font-size: var(--font-config-caption-font-size);
+  line-height: var(--font-config-caption-line-height);
+  font-weight: var(--font-config-caption-font-weight);
+  letter-spacing: var(--font-config-caption-letter-spacing);
+  color: var(--text-small);
+}
+
+/* Color intents */
+.colorTitle { color: var(--text-title); }
+.colorBody { color: var(--text-body); }
+.colorSmall { color: var(--text-small); }
+.colorSubtle { color: var(--text-subtle); }
+.colorMuted { color: var(--text-muted); }
+.colorDisabled { color: var(--text-disabled); }
+.colorSuccess { color: var(--text-success-default); }
+.colorInfo { color: var(--text-information-default); }
+.colorWarning { color: var(--text-warning-default); }
+.colorError { color: var(--text-error-default); }
+
+/* Weight overrides */
+.weightLight { font-weight: var(--weight-light); }
+.weightRegular { font-weight: var(--weight-regular); }
+.weightMedium { font-weight: var(--weight-medium); }
+.weightSemibold { font-weight: var(--weight-semibold); }
+.weightBold { font-weight: var(--weight-bold); }

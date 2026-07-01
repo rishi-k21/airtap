@@ -1,0 +1,16 @@
+.divider {
+  border: none;
+  background-color: var(--global-dividers);
+  margin: 0;
+}
+
+.horizontal {
+  width: 100%;
+  height: var(--boder-width-sm);
+}
+
+.vertical {
+  width: var(--boder-width-sm);
+  align-self: stretch;
+  min-height: 1em;
+}

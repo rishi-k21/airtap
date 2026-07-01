@@ -1,0 +1,29 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scale-100);
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-primary);
+  font-size: var(--font-config-body-small-font-size);
+  line-height: var(--font-config-body-small-line-height);
+  font-weight: var(--weight-medium);
+  color: var(--text-body);
+}
+
+.required {
+  color: var(--text-error-default);
+  margin-left: 2px;
+}
+
+.message {
+  font-size: var(--font-config-body-x-small-font-size);
+  line-height: var(--font-config-body-x-small-line-height);
+  color: var(--text-small);
+}
+
+.message.error {
+  color: var(--text-error-default);
+}

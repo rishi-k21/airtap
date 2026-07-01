@@ -1,0 +1,14 @@
+.spinner {
+  display: inline-block;
+  border-style: solid;
+  border-color: var(--surface-muted-default);
+  border-right-color: var(--global-secondary-accent);
+  border-radius: 50%;
+  animation: at-spin 0.65s linear infinite;
+}
+
+@keyframes at-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

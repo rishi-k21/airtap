@@ -1,0 +1,592 @@
+/* =========================================================
+   PAGE / STAGE
+   ========================================================= */
+.page {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding: 56px 20px 120px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% -10%, #1a1830 0%, #0c0a18 55%, #07060f 100%);
+  font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  color: #fff;
+}
+.ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 36% at 50% 38%, color-mix(in srgb, var(--accent) 26%, transparent) 0%, transparent 70%);
+  filter: blur(8px);
+  transition: background 0.6s ease;
+}
+
+.head {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  max-width: 460px;
+}
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent) 80%, #fff);
+  margin-bottom: 14px;
+}
+.kickerDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 24%, transparent);
+  animation: kickerPulse 1.6s ease-in-out infinite;
+}
+@keyframes kickerPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+.title {
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin: 0 0 10px;
+}
+.sub {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: rgba(235, 235, 245, 0.6);
+  margin: 0 auto;
+  max-width: 380px;
+  min-height: 44px;
+}
+
+/* =========================================================
+   ANDROID 9:16 SHELL
+   ========================================================= */
+.phone {
+  position: relative;
+  z-index: 2;
+  width: clamp(248px, 70vw, 300px);
+  filter: drop-shadow(0 40px 70px rgba(8, 4, 30, 0.6));
+}
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 42px;
+  padding: 9px;
+  background: linear-gradient(150deg, #43434b 0%, #16161a 30%, #2a2a30 55%, #131316 80%, #3a3a42 100%);
+  box-shadow:
+    inset 0 0 2px 2px rgba(255, 255, 255, 0.14),
+    inset 0 0 0 2.5px #060608;
+}
+.punch {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #23233a, #000 72%);
+  z-index: 40;
+}
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
+  overflow: hidden;
+  background: #0a0913;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   VARIATION A — BOOT CORE
+   ========================================================= */
+.boot { background: radial-gradient(110% 80% at 50% 30%, #1c1640 0%, #0c0820 60%, #070512 100%); }
+.bootAuroraA,
+.bootAuroraB {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(46px);
+  pointer-events: none;
+}
+.bootAuroraA {
+  width: 220px; height: 220px;
+  top: 16%; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(113, 79, 238, 0.55), transparent 70%);
+  opacity: 0.5;
+}
+.bootAuroraB {
+  width: 200px; height: 200px;
+  bottom: 6%; left: 30%;
+  background: radial-gradient(circle, rgba(214, 110, 240, 0.4), transparent 70%);
+  opacity: 0.4;
+  animation: drift 7s ease-in-out infinite alternate;
+}
+@keyframes drift { from { transform: translate(-10px, 0); } to { transform: translate(24px, -16px); } }
+
+.bootStack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ring {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ringSvg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.ringTrack { fill: none; stroke: rgba(255, 255, 255, 0.08); stroke-width: 4; }
+.ringArc {
+  fill: none;
+  stroke: #8f74f1;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 6px rgba(143, 116, 241, 0.9));
+}
+.ringComet { fill: #fff; filter: drop-shadow(0 0 7px #b9a6ff); }
+.bootGlow {
+  position: absolute;
+  width: 78px; height: 78px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(143, 116, 241, 0.85), transparent 70%);
+  opacity: 0.5;
+  filter: blur(4px);
+}
+.bootLogo {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  z-index: 2;
+}
+.bootPct {
+  margin-top: 26px;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.bootStatus {
+  margin-top: 6px;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: rgba(235, 235, 245, 0.62);
+  text-align: center;
+  min-height: 18px;
+}
+
+/* boot home reveal */
+.home {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 52px 22px 18px;
+  background:
+    radial-gradient(90% 60% at 50% 12%, rgba(113, 79, 238, 0.32), transparent 60%),
+    linear-gradient(180deg, #15122c, #0a0817);
+  visibility: hidden;
+}
+.homeClock {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 200;
+  letter-spacing: 0.01em;
+  margin-bottom: 30px;
+}
+.homeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 16px;
+  flex: 1;
+  align-content: start;
+}
+.homeApp {
+  aspect-ratio: 1;
+  border-radius: 30%;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+.homeDock {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 14px 8px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+/* =========================================================
+   VARIATION B — CLOUD LINK
+   ========================================================= */
+.stream { background: radial-gradient(110% 80% at 50% 36%, #0a1f3d 0%, #04111f 60%, #03070f 100%); }
+.streamDots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(75, 138, 246, 0.16) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(70% 60% at 50% 42%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 42%, #000 30%, transparent 75%);
+}
+.streamCore {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -14px;
+}
+.sonar {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(75, 138, 246, 0.6);
+}
+.cloudNode {
+  position: relative;
+  z-index: 2;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8cb4f8;
+  background: radial-gradient(circle at 40% 35%, rgba(75, 138, 246, 0.22), rgba(1, 70, 190, 0.08));
+  border: 1px solid rgba(75, 138, 246, 0.4);
+  box-shadow: 0 0 30px rgba(75, 138, 246, 0.35), inset 0 0 18px rgba(75, 138, 246, 0.18);
+}
+
+.streamPackets {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mask-image: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+  -webkit-mask-image: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+}
+.packet {
+  position: absolute;
+  bottom: 50%;
+  width: 3px;
+  height: 14px;
+  border-radius: 3px;
+  background: linear-gradient(#8cb4f8, rgba(140, 180, 248, 0));
+}
+
+.streamMeta {
+  position: absolute;
+  bottom: 78px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+.signal {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.signalBar {
+  width: 5px;
+  border-radius: 2px;
+  background: #8cb4f8;
+  box-shadow: 0 0 8px rgba(75, 138, 246, 0.6);
+}
+.ping {
+  font-size: 17px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  color: #c5d8fa;
+  font-family: "IBM Plex Mono", monospace;
+}
+.streamStatus { position: absolute; bottom: 34px; color: rgba(197, 216, 250, 0.72); }
+
+/* =========================================================
+   VARIATION C — FLUX (abstract motion)
+   ========================================================= */
+.flux {
+  background: radial-gradient(120% 90% at 50% 32%, #1a1140 0%, #0d0826 55%, #050310 100%);
+  overflow: hidden;
+}
+
+/* drifting aurora orbs */
+.fluxOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.7;
+  will-change: transform;
+  pointer-events: none;
+}
+.fluxOrbA {
+  top: 14%;
+  left: 12%;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(176, 107, 242, 0.85), transparent 70%);
+}
+.fluxOrbB {
+  bottom: 16%;
+  right: 8%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(113, 79, 238, 0.8), transparent 70%);
+}
+.fluxOrbC {
+  top: 42%;
+  right: 28%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(214, 110, 240, 0.6), transparent 70%);
+}
+
+/* centred stage holding the rings, core and orbit */
+.fluxStage {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  transform: translate(-50%, -50%);
+}
+
+.fluxSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.fluxRing {
+  fill: none;
+  stroke: rgba(195, 170, 255, 0.55);
+  stroke-width: 1.4;
+  will-change: transform;
+  filter: drop-shadow(0 0 6px rgba(176, 107, 242, 0.55));
+}
+.fluxRing[data-ring="1"] { stroke: rgba(214, 110, 240, 0.5); }
+.fluxRing[data-ring="2"] { stroke: rgba(176, 107, 242, 0.85); stroke-width: 1.8; }
+
+.fluxCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #ffffff 0%, #d6a8ff 28%, #b06bf2 60%, transparent 75%);
+  box-shadow: 0 0 30px 6px rgba(176, 107, 242, 0.7);
+  will-change: transform, opacity;
+}
+
+/* ready-state bloom */
+.fluxFlash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  margin: -110px 0 0 -110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214, 180, 255, 0.55) 0%, rgba(176, 107, 242, 0.25) 40%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* orbiting shards */
+.fluxOrbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  will-change: transform;
+}
+.fluxShard {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #e3c8ff, #b06bf2);
+  box-shadow: 0 0 10px rgba(176, 107, 242, 0.9);
+  will-change: transform;
+}
+
+.buildHud {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  padding: 0 22px;
+  z-index: 6;
+}
+.buildRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 11px;
+}
+.buildStatus {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: rgba(214, 206, 247, 0.92);
+  text-shadow: 0 0 10px rgba(143, 116, 241, 0.7);
+}
+.buildPct {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(143, 116, 241, 0.8);
+  font-variant-numeric: tabular-nums;
+}
+.rezBarTrack {
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(143, 116, 241, 0.16);
+  overflow: hidden;
+}
+.rezBar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #714fee, #8f74f1, #d66ef0);
+  box-shadow: 0 0 12px rgba(143, 116, 241, 0.85);
+}
+
+/* =========================================================
+   VARIATION D — HALO (particle wave tracing the screen edge)
+   ========================================================= */
+.halo {
+  background: radial-gradient(120% 90% at 50% 35%, #1a1240 0%, #0d0826 55%, #050310 100%);
+  overflow: hidden;
+}
+.haloGlow {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: 130px;
+  height: 130px;
+  margin: -65px 0 0 -65px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(143, 116, 241, 0.5) 0%, rgba(113, 79, 238, 0.16) 45%, transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.haloSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.haloTrack {
+  fill: none;
+  stroke: rgba(113, 79, 238, 0.16);
+  stroke-width: 1;
+}
+.haloDot {
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   FLOATING NAV — BOTTOM RIGHT
+   ========================================================= */
+.nav {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(16, 14, 26, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 50px -16px rgba(0, 0, 0, 0.65);
+}
+.navTitle {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 0 4px;
+}
+.navRow { display: flex; flex-direction: column; gap: 4px; }
+.navBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.navBtn:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
+.navIndex {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--swatch);
+  opacity: 0.9;
+}
+.navLabel { white-space: nowrap; }
+.navActive {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: color-mix(in srgb, var(--swatch) 55%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--swatch) 30%, transparent),
+    0 0 18px -6px var(--swatch);
+}
+
+@media (max-width: 560px) {
+  .nav { right: 14px; bottom: 14px; padding: 8px; }
+  .navTitle { display: none; }
+  .navLabel { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kickerDot, .bootAuroraB { animation: none; }
+}

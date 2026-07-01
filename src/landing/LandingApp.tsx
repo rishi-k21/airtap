@@ -1,0 +1,42 @@
+import { useState } from "react";
+import { VariationA, VariationB, VariationC } from "./variations";
+import v from "./variations.module.css";
+
+type VariationId = "A" | "B" | "C";
+
+const VARIATIONS: {
+  id: VariationId;
+  label: string;
+  swatch: string;
+  Component: () => React.JSX.Element;
+}[] = [
+  { id: "A", label: "Aurora", swatch: "#714fee", Component: VariationA },
+  { id: "B", label: "Midnight", swatch: "#9277f3", Component: VariationB },
+  { id: "C", label: "Editorial", swatch: "#ee6f2d", Component: VariationC },
+];
+
+export function LandingApp() {
+  const [active, setActive] = useState<VariationId>("A");
+  const Current = VARIATIONS.find((x) => x.id === active)!.Component;
+
+  return (
+    <>
+      <Current key={active} />
+      <div className={v.switcher} role="tablist" aria-label="Landing page variation">
+        <span className={v.switchLabel}>Style</span>
+        {VARIATIONS.map((x) => (
+          <button
+            key={x.id}
+            role="tab"
+            aria-selected={active === x.id}
+            className={`${v.switchBtn} ${active === x.id ? v.switchActive : ""}`}
+            onClick={() => setActive(x.id)}
+          >
+            <span className={v.switchSwatch} style={{ background: x.swatch }} />
+            <span>{x.label}</span>
+          </button>
+        ))}
+      </div>
+    </>
+  );
+}

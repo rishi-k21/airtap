@@ -1,0 +1,61 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--scale-100);
+  font-family: var(--font-primary);
+  font-weight: var(--weight-medium);
+  font-size: var(--font-config-caption-font-size);
+  line-height: var(--font-config-caption-line-height);
+  border: var(--boder-width-sm) solid transparent;
+  border-radius: var(--boder-radius-full-round);
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.sm {
+  font-size: 10px;
+  padding: 1px 6px;
+}
+.lg {
+  font-size: var(--font-config-body-x-small-font-size);
+  padding: 4px 10px;
+}
+
+/* Tones map to status semantic tokens */
+.neutral {
+  background-color: var(--surface-muted-default);
+  color: var(--text-body);
+  border-color: var(--border-neutral-default);
+}
+.success {
+  background-color: var(--surface-success-default);
+  color: var(--text-success-default);
+  border-color: var(--border-success-default);
+}
+.info {
+  background-color: var(--surface-information-default);
+  color: var(--text-information-default);
+  border-color: var(--border-information-default);
+}
+.warning {
+  background-color: var(--surface-warning-default);
+  color: var(--text-warning-default);
+  border-color: var(--border-warning-default);
+}
+.error {
+  background-color: var(--surface-error-default);
+  color: var(--text-error-default);
+  border-color: var(--border-error-default);
+}
+.accent {
+  background-color: var(--secondary-secondary-100);
+  color: var(--secondary-secondary-700);
+  border-color: var(--secondary-secondary-300);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}

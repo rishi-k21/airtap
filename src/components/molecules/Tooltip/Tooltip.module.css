@@ -1,0 +1,45 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.bubble {
+  position: absolute;
+  z-index: 10;
+  width: max-content;
+  max-width: 240px;
+  padding: var(--scale-100) var(--scale-150);
+  border-radius: var(--boder-radius-scale-200);
+  background: var(--surface-neutral-default);
+  color: var(--text-body);
+  border: var(--boder-width-sm) solid var(--border-subtle-default);
+  box-shadow: var(--shadow-normal);
+  font-family: var(--font-primary);
+  font-size: var(--font-config-body-x-small-font-size);
+  line-height: var(--font-config-body-x-small-line-height);
+  pointer-events: none;
+}
+
+.top {
+  bottom: calc(100% + var(--scale-100));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom {
+  top: calc(100% + var(--scale-100));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  right: calc(100% + var(--scale-100));
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  left: calc(100% + var(--scale-100));
+  top: 50%;
+  transform: translateY(-50%);
+}

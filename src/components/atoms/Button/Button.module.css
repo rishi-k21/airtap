@@ -1,0 +1,163 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--scale-200);
+  font-family: var(--font-primary);
+  font-weight: var(--weight-medium);
+  border-style: solid;
+  border-width: var(--boder-width-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    color 0.15s ease;
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 2px var(--global-page-bg), 0 0 0 4px var(--color-focus-ring, var(--global-secondary-accent));
+}
+
+/* ===== Sizes (Figma ".Button Size") ===== */
+.small {
+  font-size: 12px;
+  line-height: 12px;
+  padding: 6px 14px;
+  border-radius: var(--boder-radius-scale-100); /* 4 */
+}
+.medium {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 8px 16px;
+  border-radius: var(--boder-radius-scale-200); /* 6 */
+}
+.large {
+  font-size: 18px;
+  line-height: 20px;
+  padding: 10px 22px;
+  border-radius: var(--boder-radius-scale-300); /* 8 */
+}
+.xlarge {
+  font-size: 20px;
+  line-height: 28px;
+  padding: 12px 24px;
+  gap: var(--scale-300);
+  border-radius: var(--boder-radius-scale-400); /* 10 */
+}
+
+/* ===== Shapes (Figma ".Button Style") ===== */
+.pill {
+  border-radius: var(--boder-radius-full-round);
+}
+.rectangle {
+  border-radius: var(--boder-radius-none);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ===== Variant: Primary ===== */
+.primary {
+  background-color: var(--button-primary-default-bg);
+  color: var(--button-primary-default-text);
+  border-color: var(--button-primary-default-stroke);
+}
+.primary:hover:not(:disabled) {
+  background-color: var(--button-primary-hover-bg);
+  border-color: var(--button-primary-hover-border);
+}
+.primary:active:not(:disabled) {
+  background-color: var(--button-primary-clicked-bg);
+  border-color: var(--button-primary-clicked-border);
+}
+
+/* ===== Variant: Secondary ===== */
+.secondary {
+  background-color: var(--button-secondary-default-bg);
+  color: var(--button-secondary-default-text);
+  border-color: var(--button-secondary-default-border);
+}
+.secondary:hover:not(:disabled) {
+  background-color: var(--button-secondary-hover-bg);
+  border-color: var(--button-secondary-hover-border);
+}
+.secondary:active:not(:disabled) {
+  background-color: var(--button-secondary-clicked-bg);
+  border-color: var(--button-secondary-clicked-border);
+}
+
+/* ===== Variant: Outline ===== */
+.outline {
+  background-color: var(--button-outline-default-bg);
+  color: var(--button-outline-default-text);
+  border-color: var(--button-outline-default-border);
+}
+.outline:hover:not(:disabled) {
+  background-color: var(--button-outline-hover-bg);
+  border-color: var(--button-outline-hover-border);
+}
+.outline:active:not(:disabled) {
+  background-color: var(--button-outline-clicked-bg);
+  border-color: var(--button-outline-clicked-border);
+}
+
+/* ===== Variant: Transparent ===== */
+.transparent {
+  background-color: var(--button-transparent-default-bg);
+  color: var(--button-transparent-default-text);
+  border-color: var(--button-transparent-default-border);
+}
+.transparent:hover:not(:disabled) {
+  background-color: var(--button-transparent-hover-bg);
+  border-color: var(--button-transparent-hover-border);
+}
+.transparent:active:not(:disabled) {
+  background-color: var(--button-transparent-clicked-bg);
+  border-color: var(--button-transparent-clicked-border);
+}
+
+/* ===== Disabled (shared) ===== */
+.button:disabled {
+  background-color: var(--button-disabled-bg);
+  border-color: var(--button-disabled-border);
+  color: var(--button-disabled-text);
+  cursor: not-allowed;
+}
+
+/* ===== Icon-only ===== */
+.iconOnly.small {
+  padding: 6px;
+}
+.iconOnly.medium {
+  padding: 8px;
+}
+.iconOnly.large {
+  padding: 10px;
+}
+.iconOnly.xlarge {
+  padding: 12px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Loading spinner ===== */
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: at-btn-spin 0.6s linear infinite;
+}
+
+@keyframes at-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

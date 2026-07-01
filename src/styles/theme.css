@@ -1,0 +1,222 @@
+/**
+ * Airtap DS — Semantic theme tokens (Figma "Colors" collection)
+ * Light (default) and Dark modes — toggle with data-theme="dark" on a root el.
+ *
+ * Naming mirrors the Figma variable path:
+ *   "Surface/Neutral-Default"   -> --surface-neutral-default
+ *   "Text/Title"                -> --text-title
+ *   "Button/Primary/Default/Bg" -> --button-primary-default-bg
+ *   "Forms/Default/BG"          -> --forms-default-bg
+ *   "Global/Page-BG"            -> --global-page-bg
+ *
+ * Each value aliases into a primitive (primitives.css) exactly as Figma does.
+ */
+
+:root,
+[data-theme="light"] {
+  /* ===== Global ===== */
+  --global-page-bg: var(--primary-primary-950);
+  --global-primary-accent: var(--primary-primary-25);
+  --global-secondary-accent: var(--secondary-secondary-600);
+  --global-dividers: var(--primary-primary-900);
+  --global-overlay: var(--transparent-darks-black-70);
+
+  /* ===== Surface ===== */
+  --surface-neutral-default: var(--primary-primary-1000);
+  --surface-subtle-default: var(--primary-primary-950);
+  --surface-muted-default: var(--primary-primary-900);
+  --surface-disabled-default: var(--neutral-neutral-200);
+  --surface-transparent-default: var(--foundations-transparent);
+  --surface-success-default: var(--green-green-100);
+  --surface-information-default: var(--blue-blue-100);
+  --surface-warning-default: var(--orange-orange-100);
+  --surface-error-default: var(--red-red-100);
+
+  /* ===== Text ===== */
+  --text-title: var(--primary-primary-100);
+  --text-body: var(--primary-primary-300);
+  --text-small: var(--primary-primary-600);
+  --text-subtle: var(--primary-primary-700);
+  --text-label: var(--primary-primary-600);
+  --text-muted: var(--primary-primary-800);
+  --text-disabled: var(--neutral-neutral-700);
+  --text-on-color-default: var(--primary-primary-1000);
+  --text-success-default: var(--green-green-500);
+  --text-information-default: var(--blue-blue-500);
+  --text-warning-default: var(--orange-orange-600);
+  --text-error-default: var(--red-red-500);
+
+  /* ===== Border ===== */
+  --border-neutral-default: var(--primary-primary-900);
+  --border-subtle-default: var(--primary-primary-800);
+  --border-muted-default: var(--primary-primary-700);
+  --border-transparent-default: var(--foundations-transparent);
+  --border-disabled-default: var(--neutral-neutral-600);
+  --border-success-default: var(--green-green-600);
+  --border-information-default: var(--blue-blue-600);
+  --border-warning-default: var(--orange-orange-600);
+  --border-error-default: var(--red-red-600);
+
+  /* ===== Forms ===== */
+  --forms-default-bg: var(--primary-primary-1000);
+  --forms-default-border: var(--primary-primary-900);
+  --forms-default-text: var(--primary-primary-600);
+  --forms-hover-bg: var(--primary-primary-950);
+  --forms-hover-border: var(--primary-primary-700);
+  --forms-filled-bg: var(--primary-primary-1000);
+  --forms-filled-border: var(--primary-primary-900);
+  --forms-filled-text: var(--primary-primary-100);
+  --forms-focus-bg: var(--primary-primary-950);
+  --forms-focus-border: var(--secondary-secondary-600);
+  --forms-error-bg: var(--red-red-100);
+  --forms-error-border: var(--red-red-600);
+  --forms-disabled-bg: var(--neutral-neutral-200);
+  --forms-disabled-border: var(--neutral-neutral-600);
+  --forms-disabled-text: var(--neutral-neutral-700);
+  --forms-link: var(--blue-blue-500);
+
+  /* ===== Button / Primary ===== */
+  --button-primary-default-bg: var(--primary-primary-25);
+  --button-primary-default-text: var(--primary-primary-1000);
+  --button-primary-default-stroke: var(--primary-primary-25);
+  --button-primary-hover-bg: var(--primary-primary-300);
+  --button-primary-hover-border: var(--primary-primary-300);
+  --button-primary-clicked-bg: var(--primary-primary-200);
+  --button-primary-clicked-border: var(--primary-primary-500);
+
+  /* ===== Button / Secondary ===== */
+  --button-secondary-default-bg: var(--primary-primary-800);
+  --button-secondary-default-text: var(--primary-primary-200);
+  --button-secondary-default-border: var(--primary-primary-800);
+  --button-secondary-hover-bg: var(--primary-primary-900);
+  --button-secondary-hover-border: var(--primary-primary-900);
+  --button-secondary-clicked-bg: var(--primary-primary-700);
+  --button-secondary-clicked-border: var(--primary-primary-700);
+
+  /* ===== Button / Outline ===== */
+  --button-outline-default-bg: var(--foundations-transparent);
+  --button-outline-default-text: var(--primary-primary-300);
+  --button-outline-default-border: var(--primary-primary-300);
+  --button-outline-hover-bg: var(--primary-primary-800);
+  --button-outline-hover-border: var(--primary-primary-300);
+  --button-outline-clicked-bg: var(--primary-primary-700);
+  --button-outline-clicked-border: var(--primary-primary-300);
+
+  /* ===== Button / Transparent ===== */
+  --button-transparent-default-bg: var(--foundations-transparent);
+  --button-transparent-default-text: var(--primary-primary-200);
+  --button-transparent-default-border: var(--foundations-transparent);
+  --button-transparent-hover-bg: var(--primary-primary-800);
+  --button-transparent-hover-border: var(--primary-primary-800);
+  --button-transparent-clicked-bg: var(--primary-primary-700);
+  --button-transparent-clicked-border: var(--primary-primary-700);
+
+  /* ===== Button / Disabled (shared) ===== */
+  --button-disabled-bg: var(--neutral-neutral-100);
+  --button-disabled-border: var(--neutral-neutral-100);
+  --button-disabled-text: var(--neutral-neutral-600);
+}
+
+[data-theme="dark"] {
+  /* ===== Global ===== */
+  --global-page-bg: var(--primary-primary-100);
+  --global-primary-accent: var(--primary-primary-100);
+  --global-secondary-accent: var(--secondary-secondary-500);
+  --global-dividers: var(--primary-primary-300);
+  --global-overlay: var(--transparent-darks-black-70);
+
+  /* ===== Surface ===== */
+  --surface-neutral-default: var(--primary-primary-200);
+  --surface-subtle-default: var(--primary-primary-100);
+  --surface-muted-default: var(--primary-primary-300);
+  --surface-disabled-default: var(--neutral-neutral-800);
+  --surface-transparent-default: var(--foundations-transparent);
+  --surface-success-default: var(--green-green-800);
+  --surface-information-default: var(--blue-blue-800);
+  --surface-warning-default: var(--orange-orange-800);
+  --surface-error-default: var(--red-red-800);
+
+  /* ===== Text ===== */
+  --text-title: var(--primary-primary-1000);
+  --text-body: var(--primary-primary-900);
+  --text-small: var(--primary-primary-700);
+  --text-subtle: var(--primary-primary-600);
+  --text-label: var(--primary-primary-600);
+  --text-muted: var(--primary-primary-300);
+  --text-disabled: var(--neutral-neutral-500);
+  --text-on-color-default: var(--primary-primary-1000);
+  --text-success-default: var(--green-green-400);
+  --text-information-default: var(--blue-blue-300);
+  --text-warning-default: var(--orange-orange-400);
+  --text-error-default: var(--red-red-400);
+
+  /* ===== Border ===== */
+  --border-neutral-default: var(--primary-primary-400);
+  --border-subtle-default: var(--primary-primary-100);
+  --border-muted-default: var(--primary-primary-300);
+  --border-transparent-default: var(--foundations-transparent);
+  --border-disabled-default: var(--neutral-neutral-800);
+  --border-success-default: var(--green-green-600);
+  --border-information-default: var(--blue-blue-800);
+  --border-warning-default: var(--orange-orange-700);
+  --border-error-default: var(--red-red-600);
+
+  /* ===== Forms ===== */
+  --forms-default-bg: var(--primary-primary-200);
+  --forms-default-border: var(--primary-primary-300);
+  --forms-default-text: var(--primary-primary-600);
+  --forms-hover-bg: var(--primary-primary-300);
+  --forms-hover-border: var(--primary-primary-600);
+  --forms-filled-bg: var(--primary-primary-200);
+  --forms-filled-border: var(--primary-primary-300);
+  --forms-filled-text: var(--primary-primary-1000);
+  --forms-focus-bg: var(--primary-primary-300);
+  --forms-focus-border: var(--secondary-secondary-600);
+  --forms-error-bg: var(--red-red-800);
+  --forms-error-border: var(--red-red-600);
+  --forms-disabled-bg: var(--neutral-neutral-800);
+  --forms-disabled-border: var(--neutral-neutral-800);
+  --forms-disabled-text: var(--neutral-neutral-500);
+  --forms-link: var(--blue-blue-500);
+
+  /* ===== Button / Primary ===== */
+  --button-primary-default-bg: var(--primary-primary-1000);
+  --button-primary-default-text: var(--primary-primary-25);
+  --button-primary-default-stroke: var(--primary-primary-950);
+  --button-primary-hover-bg: var(--primary-primary-900);
+  --button-primary-hover-border: var(--primary-primary-900);
+  --button-primary-clicked-bg: var(--primary-primary-800);
+  --button-primary-clicked-border: var(--primary-primary-800);
+
+  /* ===== Button / Secondary ===== */
+  --button-secondary-default-bg: var(--primary-primary-400);
+  --button-secondary-default-text: var(--primary-primary-900);
+  --button-secondary-default-border: var(--primary-primary-400);
+  --button-secondary-hover-bg: var(--primary-primary-500);
+  --button-secondary-hover-border: var(--primary-primary-500);
+  --button-secondary-clicked-bg: var(--primary-primary-300);
+  --button-secondary-clicked-border: var(--primary-primary-300);
+
+  /* ===== Button / Outline ===== */
+  --button-outline-default-bg: var(--foundations-transparent);
+  --button-outline-default-text: var(--primary-primary-800);
+  --button-outline-default-border: var(--primary-primary-800);
+  --button-outline-hover-bg: var(--primary-primary-400);
+  --button-outline-hover-border: var(--primary-primary-800);
+  --button-outline-clicked-bg: var(--primary-primary-500);
+  --button-outline-clicked-border: var(--primary-primary-800);
+
+  /* ===== Button / Transparent ===== */
+  --button-transparent-default-bg: var(--foundations-transparent);
+  --button-transparent-default-text: var(--primary-primary-900);
+  --button-transparent-default-border: var(--foundations-transparent);
+  --button-transparent-hover-bg: var(--primary-primary-400);
+  --button-transparent-hover-border: var(--primary-primary-400);
+  --button-transparent-clicked-bg: var(--primary-primary-500);
+  --button-transparent-clicked-border: var(--primary-primary-500);
+
+  /* ===== Button / Disabled (shared) ===== */
+  --button-disabled-bg: var(--transparent-lights-white-05);
+  --button-disabled-border: var(--transparent-lights-white-05);
+  --button-disabled-text: var(--neutral-neutral-500);
+}

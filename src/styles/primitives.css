@@ -1,0 +1,278 @@
+/**
+ * Airtap DS — Primitive tokens
+ * Raw, theme-independent values from the Figma "Primitives" collection.
+ *
+ * Naming convention: CSS custom properties mirror the Figma variable path,
+ * lower-cased with "/" and spaces replaced by "-".
+ *   Figma  "Primary/Primary-800"   ->  --primary-primary-800
+ *   Figma  "Scale/400 (16)"        ->  --scale-400
+ *   Figma  "Font Config/H1/Font Size" -> --font-config-h1-font-size
+ *
+ * Do not consume these directly in components — use the semantic tokens in
+ * theme.css, which alias into this layer exactly as Figma does.
+ */
+
+:root {
+  /* ===== Transparent Darks ===== */
+  --transparent-darks-black-100: #000000;
+  --transparent-darks-black-90: #121414e5;
+  --transparent-darks-black-80: #121414cc;
+  --transparent-darks-black-70: #121414b2;
+  --transparent-darks-black-60: #12141499;
+  --transparent-darks-black-50: #12141480;
+  --transparent-darks-black-40: #12141466;
+  --transparent-darks-black-30: #1214144d;
+  --transparent-darks-black-20: #12141433;
+  --transparent-darks-black-10: #1214141a;
+  --transparent-darks-black-05: #1214140d;
+
+  /* ===== Transparent Lights ===== */
+  --transparent-lights-white-100: #ffffff;
+  --transparent-lights-white-90: #e4e7e7e5;
+  --transparent-lights-white-80: #e4e7e7cc;
+  --transparent-lights-white-70: #e4e7e7b2;
+  --transparent-lights-white-60: #e4e7e799;
+  --transparent-lights-white-50: #e4e7e780;
+  --transparent-lights-white-40: #e4e7e766;
+  --transparent-lights-white-30: #e4e7e74d;
+  --transparent-lights-white-20: #e4e7e733;
+  --transparent-lights-white-10: #e4e7e71a;
+  --transparent-lights-white-05: #e4e7e70d;
+
+  /* ===== Primary (neutral gray-blue ramp — inverted: 25 = darkest) ===== */
+  --primary-primary-25: #16181f;
+  --primary-primary-50: #1e2029;
+  --primary-primary-100: #252734;
+  --primary-primary-200: #2d2f3e;
+  --primary-primary-300: #3c3f53;
+  --primary-primary-400: #43475d;
+  --primary-primary-500: #5d6077;
+  --primary-primary-600: #818495;
+  --primary-primary-700: #b7b9c2;
+  --primary-primary-800: #d2d3d9;
+  --primary-primary-900: #ebebef;
+  --primary-primary-950: #f3f3f6;
+  --primary-primary-1000: #fbfbfc;
+
+  /* ===== Secondary (brand purple) ===== */
+  --secondary-secondary-100: #ece7fd;
+  --secondary-secondary-200: #d2c7f9;
+  --secondary-secondary-300: #bcabf7;
+  --secondary-secondary-400: #a590f4;
+  --secondary-secondary-500: #8f74f1;
+  --secondary-secondary-600: #714fee;
+  --secondary-secondary-700: #4c20e9;
+  --secondary-secondary-800: #3c14cc;
+  --secondary-secondary-900: #210b6f;
+  --secondary-secondary-1000: #0b0425;
+
+  /* ===== Tertiary (magenta) ===== */
+  --tertiary-tertiary-100: #faedfd;
+  --tertiary-tertiary-200: #f5dafb;
+  --tertiary-tertiary-300: #edbef8;
+  --tertiary-tertiary-400: #e5a3f5;
+  --tertiary-tertiary-500: #dd87f3;
+  --tertiary-tertiary-600: #d66ef0;
+  --tertiary-tertiary-700: #be18e7;
+  --tertiary-tertiary-800: #8911a6;
+  --tertiary-tertiary-900: #3d084a;
+  --tertiary-tertiary-1000: #1e0425;
+
+  /* ===== Neutral (true gray) ===== */
+  --neutral-neutral-100: #f2f2f2;
+  --neutral-neutral-200: #e0e0e0;
+  --neutral-neutral-300: #d1d1d1;
+  --neutral-neutral-400: #c2c2c2;
+  --neutral-neutral-500: #b2b2b2;
+  --neutral-neutral-600: #9e9e9e;
+  --neutral-neutral-700: #848484;
+  --neutral-neutral-800: #707070;
+  --neutral-neutral-900: #3d3d3d;
+  --neutral-neutral-1000: #151515;
+  --neutral-neutral-black: #000000;
+  --neutral-neutral-white: #ffffff;
+
+  /* ===== Red ===== */
+  --red-red-100: #fae7e8;
+  --red-red-200: #f4c8c7;
+  --red-red-300: #ef8f8c;
+  --red-red-400: #eb5651;
+  --red-red-500: #e93323;
+  --red-red-600: #b52619;
+  --red-red-700: #7e170f;
+  --red-red-800: #420805;
+  --red-red-900: #1d0302;
+
+  /* ===== Green ===== */
+  --green-green-100: #ecf7e9;
+  --green-green-200: #d2ecc9;
+  --green-green-300: #b2dda7;
+  --green-green-400: #75c15d;
+  --green-green-500: #4fac31;
+  --green-green-600: #428f29;
+  --green-green-700: #306c1d;
+  --green-green-800: #1c420f;
+  --green-green-900: #0e2108;
+
+  /* ===== Orange ===== */
+  --orange-orange-100: #fbf1e8;
+  --orange-orange-200: #f8dec9;
+  --orange-orange-300: #f5c094;
+  --orange-orange-400: #f19f5a;
+  --orange-orange-500: #ed7e30;
+  --orange-orange-600: #e36e21;
+  --orange-orange-700: #834218;
+  --orange-orange-800: #411e07;
+  --orange-orange-900: #2b1303;
+
+  /* ===== Blue ===== */
+  --blue-blue-100: #e8effc;
+  --blue-blue-200: #c5d8fa;
+  --blue-blue-300: #8cb4f8;
+  --blue-blue-400: #4b8af6;
+  --blue-blue-500: #015af5;
+  --blue-blue-600: #0146be;
+  --blue-blue-700: #003185;
+  --blue-blue-800: #021b46;
+  --blue-blue-900: #01112d;
+
+  /* ===== Cyan (Figma group "Cyan", names use "Blue-###") ===== */
+  --cyan-blue-100: #e8f9fc;
+  --cyan-blue-200: #c5f3fa;
+  --cyan-blue-300: #8ceaf8;
+  --cyan-blue-400: #4bdff6;
+  --cyan-blue-500: #01d4f5;
+  --cyan-blue-600: #01a5be;
+  --cyan-blue-700: #007385;
+  --cyan-blue-800: #023d46;
+  --cyan-blue-900: #01272d;
+
+  /* ===== Yellow ===== */
+  --yellow-yellow-100: #fbf8e8;
+  --yellow-yellow-200: #f8f0c9;
+  --yellow-yellow-300: #f5e594;
+  --yellow-yellow-400: #f1d85a;
+  --yellow-yellow-500: #edcd30;
+  --yellow-yellow-600: #c1b31a;
+  --yellow-yellow-700: #837118;
+  --yellow-yellow-800: #413707;
+  --yellow-yellow-900: #2b2403;
+
+  /* ===== Foundations ===== */
+  --foundations-white: #ffffff;
+  --foundations-black: #000000;
+  --foundations-transparent: #ffffff00;
+
+  /* ===== Scale (spacing, px) — Figma "Scale/###" ===== */
+  --scale-0: 0px;
+  --scale-25: 1px;
+  --scale-50: 2px;
+  --scale-100: 4px;
+  --scale-200: 8px;
+  --scale-300: 12px;
+  --scale-400: 16px;
+  --scale-500: 20px;
+  --scale-600: 24px;
+  --scale-700: 28px;
+  --scale-800: 32px;
+  --scale-900: 36px;
+  --scale-1000: 40px;
+  --scale-1100: 44px;
+  --scale-1200: 48px;
+  --scale-1300: 64px;
+  --scale-1400: 80px;
+  --scale-1500: 96px;
+  --scale-1600: 128px;
+
+  /* ===== Border Radius — Figma "Boder Radius/*" ===== */
+  --boder-radius-none: 0px;
+  --boder-radius-scale-50: 2px;
+  --boder-radius-scale-100: 4px;
+  --boder-radius-scale-200: 6px;
+  --boder-radius-scale-300: 8px;
+  --boder-radius-scale-400: 10px;
+  --boder-radius-scale-500: 12px;
+  --boder-radius-scale-600: 16px;
+  --boder-radius-scale-700: 20px;
+  --boder-radius-scale-800: 24px;
+  --boder-radius-scale-900: 32px;
+  --boder-radius-full-round: 9999px;
+
+  /* ===== Border Width — Figma "Boder Width/*" ===== */
+  --boder-width-none: 0px;
+  --boder-width-sm: 1px;
+  --boder-width-md: 2px;
+  --boder-width-lg: 4px;
+
+  /* ===== Font (family) — Figma "Font/*" ===== */
+  --font-primary: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-secondary: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-code: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  /* ===== Font Config — Figma "Font Config/*" (Desktop mode) ===== */
+  --font-config-base-size: 16px;
+
+  --font-config-h1-font-size: 38px;
+  --font-config-h1-line-height: 48px;
+  --font-config-h1-font-weight: 300;
+  --font-config-h1-letter-spacing: -1.5px;
+
+  --font-config-h2-font-size: 32px;
+  --font-config-h2-line-height: 42px;
+  --font-config-h2-font-weight: 400;
+  --font-config-h2-letter-spacing: -1.5px;
+
+  --font-config-h3-font-size: 28px;
+  --font-config-h3-line-height: 36px;
+  --font-config-h3-font-weight: 500;
+  --font-config-h3-letter-spacing: -0.9px;
+
+  --font-config-h4-font-size: 18px;
+  --font-config-h4-line-height: 24px;
+  --font-config-h4-font-weight: 500;
+  --font-config-h4-letter-spacing: 0px;
+
+  --font-config-h5-font-size: 16px;
+  --font-config-h5-line-height: 20px;
+  --font-config-h5-font-weight: 400;
+  --font-config-h5-letter-spacing: 0.3px;
+
+  --font-config-h6-font-size: 14px;
+  --font-config-h6-line-height: 16px;
+  --font-config-h6-font-weight: 400;
+  --font-config-h6-letter-spacing: 0px;
+
+  --font-config-body-font-size: 16px;
+  --font-config-body-line-height: 24px;
+  --font-config-body-font-weight: 300;
+  --font-config-body-letter-spacing: 0px;
+
+  --font-config-body-medium-font-size: 16px;
+  --font-config-body-medium-line-height: 24px;
+  --font-config-body-medium-font-weight: 300;
+
+  --font-config-body-small-font-size: 14px;
+  --font-config-body-small-line-height: 20px;
+  --font-config-body-small-font-weight: 300;
+
+  --font-config-body-x-small-font-size: 12px;
+  --font-config-body-x-small-line-height: 16px;
+  --font-config-body-x-small-font-weight: 300;
+
+  --font-config-caption-font-size: 12px;
+  --font-config-caption-line-height: 16px;
+  --font-config-caption-font-weight: 500;
+  --font-config-caption-letter-spacing: 0.9px;
+
+  /* ===== Weights ===== */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ===== Shadow (Figma "Shadow/*" effect styles) ===== */
+  --shadow-small: 0 1px 2px rgba(18, 20, 20, 0.08);
+  --shadow-normal: 0 4px 12px rgba(18, 20, 20, 0.12);
+  --shadow-big: 0 12px 32px rgba(18, 20, 20, 0.18);
+}
