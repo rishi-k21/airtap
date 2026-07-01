@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { VariationA, VariationB, VariationC } from "./variations";
+import { VariationA, VariationB, VariationC, VariationD } from "./variations";
 import v from "./variations.module.css";
 
-type VariationId = "A" | "B" | "C";
+type VariationId = "A" | "B" | "C" | "D";
 
 const VARIATIONS: {
   id: VariationId;
@@ -10,13 +10,14 @@ const VARIATIONS: {
   swatch: string;
   Component: () => React.JSX.Element;
 }[] = [
-  { id: "A", label: "Aurora", swatch: "#714fee", Component: VariationA },
-  { id: "B", label: "Midnight", swatch: "#9277f3", Component: VariationB },
+  { id: "A", label: "Aurora",    swatch: "#714fee", Component: VariationA },
+  { id: "B", label: "Midnight",  swatch: "#9277f3", Component: VariationB },
   { id: "C", label: "Editorial", swatch: "#ee6f2d", Component: VariationC },
+  { id: "D", label: "DS Native", swatch: "#fbfbfc", Component: VariationD },
 ];
 
 export function LandingApp() {
-  const [active, setActive] = useState<VariationId>("A");
+  const [active, setActive] = useState<VariationId>("D");
   const Current = VARIATIONS.find((x) => x.id === active)!.Component;
 
   return (
