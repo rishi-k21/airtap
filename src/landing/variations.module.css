@@ -100,7 +100,8 @@
   color: #fff;
   font-size: 14px;
   font-weight: 600;
-  text-decoration: none;
+  border: none;
+  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .navCta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -10px var(--accent); }

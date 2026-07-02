@@ -48,9 +48,11 @@ const WAVE_BRAND: [number, number, number][] = [
 function TopNav({
   theme,
   onToggleTheme,
+  onCtaClick,
 }: {
   theme?: "dark" | "light";
   onToggleTheme?: () => void;
+  onCtaClick?: () => void;
 }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -83,13 +85,10 @@ function TopNav({
             {theme === "dark" ? <Icons.sun width={17} height={17} /> : <Icons.moon width={17} height={17} />}
           </button>
         )}
-        <a href="#" style={{ fontSize: 14.5, fontWeight: 500, color: "var(--muted)", textDecoration: "none" }}>
-          Sign in
-        </a>
-        <a href="#" className={v.navCta}>
+        <button type="button" className={v.navCta} onClick={onCtaClick}>
           Get started
           <Icons.arrow width={15} height={15} />
-        </a>
+        </button>
       </div>
     </nav>
   );
@@ -331,7 +330,7 @@ export function VariationA() {
   const [modal, setModal] = useState(false);
   return (
     <div className={`${v.root} ${v.themeLight}`}>
-      <TopNav />
+      <TopNav onCtaClick={() => setModal(true)} />
       <HeroA onCtaClick={() => setModal(true)} />
       <RoutinesSection />
       <ImessageFeatures />
@@ -349,7 +348,7 @@ export function VariationB() {
   const [modal, setModal] = useState(false);
   return (
     <div className={`${v.root} ${theme === "dark" ? v.themeDark : v.themeMidnightLight}`}>
-      <TopNav theme={theme} onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))} />
+      <TopNav theme={theme} onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))} onCtaClick={() => setModal(true)} />
       <HeroB theme={theme} onCtaClick={() => setModal(true)} />
       <HowItWorksSection />
       <RoutinesSection />
@@ -366,7 +365,7 @@ export function VariationC() {
   const [modal, setModal] = useState(false);
   return (
     <div className={`${v.root} ${v.themeEditorial}`}>
-      <TopNav />
+      <TopNav onCtaClick={() => setModal(true)} />
       <HeroC onCtaClick={() => setModal(true)} />
       <RoutinesSection />
       <ImessageFeatures />
@@ -570,7 +569,7 @@ function CloudPhoneSection() {
 }
 
 /* ---- Nav D ---- */
-function NavD({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme: () => void }) {
+function NavD({ theme, onToggleTheme, onCtaClick }: { theme: "light" | "dark"; onToggleTheme: () => void; onCtaClick: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 12);
@@ -593,11 +592,10 @@ function NavD({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme
         <button className={d.themeToggle} onClick={onToggleTheme} aria-label="Toggle theme">
           {theme === "dark" ? <Icons.sun width={15} height={15} /> : <Icons.moon width={15} height={15} />}
         </button>
-        <a href="#" className={d.navSignIn}>Sign in</a>
-        <a href="#" className={d.navCta}>
+        <button type="button" className={d.navCta} onClick={onCtaClick}>
           Get started
           <Icons.arrow width={14} height={14} />
-        </a>
+        </button>
       </div>
     </nav>
   );
@@ -653,7 +651,7 @@ export function VariationD() {
       className={`${d.root} ${theme === "light" ? d.themeLight : d.themeDark}`}
       data-theme={theme}
     >
-      <NavD theme={theme} onToggleTheme={toggleTheme} />
+      <NavD theme={theme} onToggleTheme={toggleTheme} onCtaClick={() => setModal(true)} />
       <HeroD theme={theme} onCtaClick={() => setModal(true)} />
       <CloudPhoneSection />
       <RoutinesSection />

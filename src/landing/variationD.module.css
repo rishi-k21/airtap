@@ -106,7 +106,7 @@
   border: 1px solid var(--button-primary-default-stroke);
   font-size: var(--font-config-body-small-font-size);
   font-weight: 500;
-  text-decoration: none;
+  cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .navCta:hover {
@@ -178,7 +178,7 @@
 
 @media (max-width: 900px) {
   .heroSplit { grid-template-columns: 1fr; }
-  .heroRight { display: none; }
+  .heroRight { justify-content: center; margin-top: 32px; }
 }
 
 /* Eyebrow — uses DS surface + border tokens, not a custom swatch */
