@@ -259,28 +259,44 @@ export interface Faq {
 
 export const FAQS: Faq[] = [
   {
-    q: "What exactly is an Airtap cloud phone?",
-    a: "It's a full Android smartphone running in our cloud — not an emulator screenshot. You install real apps, log in, and the AI agent operates it just like a person would, tapping and typing on a real screen.",
+    q: "What is Airtap?",
+    a: "Airtap is a personal AI agent that lives in your messaging apps and operates the apps on your phone.",
   },
   {
-    q: "How does Airtap keep my logins safe?",
-    a: "We never persist your data. Credentials you enter go straight into the app's secure field — the agent can see the screen layout but is blocked from reading password inputs. When your session ends, the device is wiped completely.",
+    q: "What makes Airtap different from other AI agents?",
+    a: "Traditional agents operate in browsers or cloud sandboxes and can only access web content. Airtap runs on a real phone with your real accounts — it taps, types, and swipes just like you would.",
   },
   {
-    q: "Can the agent really use any app?",
-    a: "Yes. Because it works the live screen, it isn't limited to APIs. If you can do it on a phone — booking flights, ordering food, applying to jobs, replying to DMs — the agent can do it too.",
+    q: "How does it work?",
+    a: "Text or send an iMessage to +1-650-213-7322. Airtap will reply and help you think through what you want to do. For advanced use cases, visit airtap.ai/app.",
   },
   {
-    q: "How do I talk to my agent?",
-    a: "Just text it via messaging like you'd text a friend. No app to download, no dashboard to learn. Reply with a tap and the agent gets to work.",
+    q: "What is Autopilot?",
+    a: "Autopilot is our Android app that controls apps installed on your own Android device. Install it via sideloading through your account settings.",
+  },
+  {
+    q: "What can I ask it to do?",
+    a: "Anything you would do by hand in an app — digital couponing, playlist conversion, feed summarization, rideshare ordering, job applications, flight booking, and more.",
   },
   {
     q: "What are routines?",
-    a: "Routines are saved tasks the agent reruns on a schedule you choose — daily, weekly, or custom. Start from our library of pre-built routines or create your own from any task.",
+    a: "A routine is a job you save to run automatically on a schedule, instead of sending it by hand each time.",
   },
   {
-    q: "Do I need to keep my phone on?",
-    a: "No. Everything runs in the cloud, independent of your physical device. Your routines fire even while your phone is off or you're asleep.",
+    q: "Do I need my own Android phone?",
+    a: "No. Airtap runs on a cloud phone provisioned for you — no extra hardware required.",
+  },
+  {
+    q: "Does it work on an iPhone?",
+    a: "Yes. iPhone users can message the agent directly via iMessage. Android users can use Telegram or SMS.",
+  },
+  {
+    q: "Do I have to give Airtap my passwords?",
+    a: "No. You authenticate in your apps independently — Airtap has no access to your credentials.",
+  },
+  {
+    q: "Where do I get help?",
+    a: "Visit airtap.ai/support or email support@airtap.ai.",
   },
 ];
 
