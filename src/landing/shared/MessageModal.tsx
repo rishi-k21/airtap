@@ -3,7 +3,7 @@ import QRCode from "qrcode";
 import styles from "./MessageModal.module.css";
 
 const SMS_URL = "sms:+16502137322?body=Hi%20there%2C%20what%20are%20the%20top%205%20things%20I%20can%20do%20with%20Airtap";
-const PHONE_DISPLAY = "(888) 555-0199";
+const PHONE_DISPLAY = "+1 (650) 213-7322";
 const WEBAPP_URL = "https://airtap.ai/app";
 
 interface MessageModalProps {
@@ -70,7 +70,7 @@ export function MessageModal({ isOpen, onClose, theme = "light" }: MessageModalP
         <p className={styles.directText}>
           Or text us directly at{" "}
           <a
-            href={`sms:+16502137322?body=Hi%20there%2C%20what%20are%20the%20top%205%20things%20I%20can%20do%20with%20Airtap`}
+            href={SMS_URL}
             className={`${styles.phone} ${isDark ? styles.phoneDark : ""}`}
           >
             {PHONE_DISPLAY}
