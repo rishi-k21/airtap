@@ -178,7 +178,7 @@ export const ROUTINES: Routine[] = [
     id: "morning-brief",
     emoji: "☀️",
     title: "Morning Briefing",
-    description: "Calendar, weather, news and bills summarized straight to iMessage.",
+    description: "Calendar, weather, news and bills summarized straight to messaging.",
     cadence: "Daily · 7 AM",
     category: "Productivity",
   },
@@ -243,7 +243,7 @@ export const HOW_IT_WORKS: Feature[] = [
   {
     icon: "chat",
     title: "Just text what you need",
-    body: "Ask in plain English from iMessage. The agent taps, types and swipes to get it done.",
+    body: "Ask in plain English via messaging. The agent taps, types and swipes to get it done.",
   },
   {
     icon: "repeat",
@@ -272,7 +272,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "How do I talk to my agent?",
-    a: "Just text it from iMessage like you'd text a friend. No app to download, no dashboard to learn. Reply with a tap and the agent gets to work.",
+    a: "Just text it via messaging like you'd text a friend. No app to download, no dashboard to learn. Reply with a tap and the agent gets to work.",
   },
   {
     q: "What are routines?",
@@ -330,7 +330,7 @@ export const LOGOS = ["TechCrunch", "The Verge", "Wired", "Product Hunt", "Fast 
 export const NAV_LINKS = [
   { label: "Product", href: "#product" },
   { label: "Routines", href: "#routines" },
-  { label: "iMessage", href: "#imessage" },
+  { label: "Messaging", href: "#messaging" },
   { label: "Security", href: "#security" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -338,7 +338,7 @@ export const NAV_LINKS = [
 export const FOOTER_COLUMNS = [
   {
     title: "Product",
-    links: ["Cloud Phone", "AI Agent", "Routines Library", "iMessage Mode", "Pricing", "Changelog"],
+    links: ["Cloud Phone", "AI Agent", "Routines Library", "Messaging Mode", "Pricing", "Changelog"],
   },
   {
     title: "Use cases",

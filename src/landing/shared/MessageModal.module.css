@@ -1,0 +1,240 @@
+/* =========================================================
+   MESSAGE MODAL — "Scan to text Airtap"
+   Light variant is default; .modalDark + dark-suffixed
+   modifier classes flip to DS dark tokens.
+   ========================================================= */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.52);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal card */
+.modal {
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 36px 36px;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.28);
+  animation: slideUp 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+/* Colored top accent bar */
+.modal::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #714fee 0%, #d66ef0 50%, #714fee 100%);
+}
+
+/* Subtle brand glow in top-right corner */
+.modal::after {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(113, 79, 238, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.modalDark {
+  background: #252734;
+  box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.65);
+}
+
+.modalDark::after {
+  background: radial-gradient(circle, rgba(113, 79, 238, 0.14) 0%, transparent 70%);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  line-height: 1;
+  color: #9ca3af;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, background 0.15s ease;
+  padding: 0;
+  z-index: 1;
+}
+.close:hover        { color: #374151; background: #f3f4f6; }
+.closeDark          { color: #6b7280; }
+.closeDark:hover    { color: #e5e7eb; background: #3c3f53; }
+
+/* Title */
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #111827;
+  margin: 0 0 10px;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+.modalDark .title { color: #f3f3f6; }
+
+/* Subtitle */
+.subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #6b7280;
+  margin: 0 auto 24px;
+  max-width: 360px;
+  position: relative;
+  z-index: 1;
+}
+.modalDark .subtitle { color: #9ca3af; }
+
+/* QR code container */
+.qrWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1.5px solid rgba(113, 79, 238, 0.18);
+  position: relative;
+  z-index: 1;
+}
+.qrWrapDark {
+  background: #1e2029;
+  border-color: rgba(113, 79, 238, 0.3);
+}
+.qrWrap canvas {
+  display: block;
+  border-radius: 6px;
+}
+
+/* Direct text / phone number */
+.directText {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0 0 22px;
+  position: relative;
+  z-index: 1;
+}
+.modalDark .directText { color: #9ca3af; }
+
+.phone {
+  font-weight: 700;
+  color: #714fee;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.phone:hover  { color: #5a3fd6; text-decoration: underline; }
+.phoneDark    { color: #a590f4; }
+.phoneDark:hover { color: #bba8f7; }
+
+/* Divider */
+.divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 0 18px;
+  z-index: 1;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+.dividerDark::before,
+.dividerDark::after { background: #3c3f53; }
+
+.dividerLabel {
+  padding: 0 14px;
+  font-size: 13px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+.dividerLabelDark { color: #6b7280; }
+
+/* Web app button — outline style */
+.webappBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: transparent;
+  border: 1.5px solid #714fee;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.webappBtn:hover {
+  background: rgba(113, 79, 238, 0.06);
+  border-color: #5a3fd6;
+}
+
+.webappBtnDark {
+  border-color: rgba(165, 144, 244, 0.55);
+}
+.webappBtnDark:hover {
+  background: rgba(113, 79, 238, 0.12);
+  border-color: #a590f4;
+}
+
+.webappBtnTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #714fee;
+  letter-spacing: -0.2px;
+}
+.webappBtnDark .webappBtnTitle { color: #a590f4; }
+
+.webappBtnSub {
+  font-size: 13px;
+  color: #9ca3af;
+  font-weight: 400;
+}
+.webappBtnDark .webappBtnSub { color: #6b7280; }
+
+@media (max-width: 520px) {
+  .modal { padding: 32px 20px 24px; border-radius: 18px; }
+  .title { font-size: 22px; }
+}

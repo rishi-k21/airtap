@@ -5,14 +5,12 @@ import { Icons } from "./shared/icons";
 import { Reveal, SplitText } from "./shared/reveal";
 import { ShaderCanvas } from "./shared/ShaderCanvas";
 import { PhoneMockup } from "./shared/PhoneMockup";
+import { MessageModal } from "./shared/MessageModal";
 import {
   RoutinesSection,
   SecuritySection,
   HowItWorksSection,
-  StatsSection,
-  SocialProofSection,
   FaqSection,
-  CtaSection,
   Footer,
 } from "./sections";
 import s from "./sections.module.css";
@@ -137,12 +135,12 @@ function ImsgCopy() {
   return (
     <div className={`${v.imsgCopy} ${s.headWrap}`}>
       <Reveal as="span" className={v.eyebrowLocal} y={14}>
-        iMessage mode
-      </Reveal>
+        Messaging mode
+</Reveal>
       <SplitText text="Get things done from your texts." as="h2" className={v.h2Local} />
       <Reveal as="p" className={s.lead} delay={0.1}>
         Airtap's superpower: just text your agent like a friend. Ask for anything, approve
-        with a tap, and watch it happen — right inside iMessage.
+        with a tap, and watch it happen — right inside iMessage and RCS.
       </Reveal>
       <div className={v.imsgFeatures}>
         {IMSG_FEATURES.map((f, i) => {
@@ -168,7 +166,7 @@ function ImsgCopy() {
     so this fold explains the capabilities without a second mockup. */
 function ImessageFeatures({ flip }: { flip?: boolean }) {
   return (
-    <section className={v.imsg} id="imessage">
+    <section className={v.imsg} id="messaging">
       <div className={v.imsgShader}>
         <ShaderCanvas mode="glass" colors={GLASS_COOL} density={70} opacity={0.32} contrast={1.1} />
       </div>
@@ -185,7 +183,7 @@ function ImessageFeatures({ flip }: { flip?: boolean }) {
 /* ------------------------------------------------------------------ */
 /* HERO — Variation A · Aurora (light, split: copy + live phone)       */
 /* ------------------------------------------------------------------ */
-function HeroA() {
+function HeroA({ onCtaClick }: { onCtaClick: () => void }) {
   return (
     <header className={v.hero} id="product">
       <div className={v.heroShader}>
@@ -194,14 +192,10 @@ function HeroA() {
       <div className={v.heroInner}>
         <div className={v.heroSplit}>
           <div>
-            <Reveal as="div" className={v.heroPill} y={14}>
-              <span className={v.heroPillTag}>NEW</span>
-              The AI that actually uses your apps
-            </Reveal>
             <h1 className={v.heroTitle}>
-              <SplitText text="Your phone." as="span" style={{ display: "block" }} />
+              <SplitText text="Text your" as="span" style={{ display: "block" }} />
               <SplitText
-                text="Just text it."
+                text="apps."
                 as="span"
                 className={v.heroAccentLine}
                 style={{ display: "block" }}
@@ -209,21 +203,14 @@ function HeroA() {
               />
             </h1>
             <Reveal as="p" className={v.heroSub} delay={0.3}>
-              Airtap gives you a virtual Android cloud phone with a smart agent that books
-              flights, applies to jobs, orders food and more — all from a simple text.
+              Stop doing it yourself. Job applications, flight tracking, digital couponing:
+              whatever you do on your phone, just text it to Airtap and let it handle the rest.
             </Reveal>
             <Reveal className={v.heroCtas} delay={0.4}>
-              <a href="#" className={`${s.btn} ${s.btnPrimary}`}>
-                Get your cloud phone
+              <button className={`${s.btn} ${s.btnPrimary}`} onClick={onCtaClick}>
+                Message Airtap
                 <Icons.arrow />
-              </a>
-              <a href="#imessage" className={`${s.btn} ${s.btnGhost}`}>
-                See it work
-              </a>
-            </Reveal>
-            <Reveal as="div" className={v.heroNote} delay={0.5}>
-              <Icons.shield />
-              Zero data stored · the agent can't see your passwords
+              </button>
             </Reveal>
           </div>
           <Reveal y={50} delay={0.2}>
@@ -238,7 +225,7 @@ function HeroA() {
 /* ------------------------------------------------------------------ */
 /* HERO — Variation B · Midnight (dark, center stage: phone + chips)   */
 /* ------------------------------------------------------------------ */
-function HeroB({ theme = "dark" }: { theme?: "dark" | "light" }) {
+function HeroB({ theme = "dark", onCtaClick }: { theme?: "dark" | "light"; onCtaClick: () => void }) {
   const surface = theme === "dark" ? v.heroDarkSurface : v.heroDimSurface;
   return (
     <header className={`${v.hero} ${v.heroStageWrap} ${v.heroSurface} ${surface}`} id="product">
@@ -251,14 +238,10 @@ function HeroB({ theme = "dark" }: { theme?: "dark" | "light" }) {
       </div>
       <div className={v.heroInner}>
         <div className={v.heroStage}>
-          <Reveal as="div" className={v.heroPill} y={14}>
-            <span className={v.heroPillTag}>CLOUD PHONE</span>
-            Powered by an autonomous agent
-          </Reveal>
           <h1 className={v.heroTitle} style={{ maxWidth: 760 }}>
-            <SplitText text="Delegate your" as="span" style={{ display: "block" }} />
+            <SplitText text="Text your" as="span" style={{ display: "block" }} />
             <SplitText
-              text="entire phone."
+              text="apps."
               as="span"
               className={v.heroAccentLine}
               style={{ display: "block" }}
@@ -266,17 +249,14 @@ function HeroB({ theme = "dark" }: { theme?: "dark" | "light" }) {
             />
           </h1>
           <Reveal as="p" className={v.heroSub} delay={0.3} style={{ maxWidth: 560 }}>
-            A real Android device in the cloud, operated by an AI agent that taps, types and
-            swipes for you. Tell it what you need — right from iMessage.
+            Stop doing it yourself. Job applications, flight tracking, digital couponing:
+            whatever you do on your phone, just text it to Airtap and let it handle the rest.
           </Reveal>
           <Reveal className={v.heroCtas} delay={0.4}>
-            <a href="#" className={`${s.btn} ${s.btnPrimary}`}>
-              Start free
+            <button className={`${s.btn} ${s.btnPrimary}`} onClick={onCtaClick}>
+              Message Airtap
               <Icons.arrow />
-            </a>
-            <a href="#routines" className={`${s.btn} ${s.btnGhost}`}>
-              Browse routines
-            </a>
+            </button>
           </Reveal>
 
           <div className={v.stageWrap}>
@@ -293,7 +273,7 @@ function HeroB({ theme = "dark" }: { theme?: "dark" | "light" }) {
 /* ------------------------------------------------------------------ */
 /* HERO — Variation C · Editorial (asymmetric: phone left, big type)   */
 /* ------------------------------------------------------------------ */
-function HeroC() {
+function HeroC({ onCtaClick }: { onCtaClick: () => void }) {
   return (
     <header className={`${v.hero} ${v.heroMagWrap}`} id="product">
       <div className={v.heroShader}>
@@ -307,31 +287,27 @@ function HeroC() {
           <div className={v.magType}>
             <Reveal as="div" className={v.heroPill} y={14}>
               <span className={v.heroPillTag}>AIRTAP.AI</span>
-              Cloud phone · AI agent · iMessage
+              Cloud phone · AI agent · messaging
             </Reveal>
             <h1 className={v.heroTitleMag}>
-              <SplitText text="Stop using" as="span" style={{ display: "block" }} />
-              <SplitText text="apps. Start" as="span" style={{ display: "block" }} delay={0.12} />
+              <SplitText text="Text your" as="span" style={{ display: "block" }} />
               <SplitText
-                text="asking."
+                text="apps."
                 as="span"
                 className={v.heroAccentLine}
                 style={{ display: "block" }}
-                delay={0.24}
+                delay={0.12}
               />
             </h1>
             <Reveal as="p" className={v.heroSub} delay={0.36}>
-              A virtual phone that runs itself. Text your agent in plain English and it
-              handles the booking, the applying, the ordering — across any app.
+              Stop doing it yourself. Job applications, flight tracking, digital couponing:
+              whatever you do on your phone, just text it to Airtap and let it handle the rest.
             </Reveal>
             <Reveal className={v.heroCtas} delay={0.46}>
-              <a href="#" className={`${s.btn} ${s.btnPrimary}`}>
-                Claim your phone
+              <button className={`${s.btn} ${s.btnPrimary}`} onClick={onCtaClick}>
+                Message Airtap
                 <Icons.arrow />
-              </a>
-              <a href="#imessage" className={`${s.btn} ${s.btnGhost}`}>
-                Watch a conversation
-              </a>
+              </button>
             </Reveal>
             <div className={v.magStats}>
               {STATS.slice(0, 3).map((st, i) => (
@@ -352,55 +328,53 @@ function HeroC() {
 /* VARIATION COMPOSITIONS — each has a distinct section flow           */
 /* ------------------------------------------------------------------ */
 export function VariationA() {
+  const [modal, setModal] = useState(false);
   return (
     <div className={`${v.root} ${v.themeLight}`}>
       <TopNav />
-      <HeroA />
+      <HeroA onCtaClick={() => setModal(true)} />
       <RoutinesSection />
       <ImessageFeatures />
       <SecuritySection />
       <HowItWorksSection />
-      <StatsSection />
-      <SocialProofSection />
       <FaqSection />
-      <CtaSection />
       <Footer />
+      <MessageModal isOpen={modal} onClose={() => setModal(false)} theme="light" />
     </div>
   );
 }
 
 export function VariationB() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [modal, setModal] = useState(false);
   return (
     <div className={`${v.root} ${theme === "dark" ? v.themeDark : v.themeMidnightLight}`}>
       <TopNav theme={theme} onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))} />
-      <HeroB theme={theme} />
+      <HeroB theme={theme} onCtaClick={() => setModal(true)} />
       <HowItWorksSection />
       <RoutinesSection />
       <ImessageFeatures flip />
-      <StatsSection />
       <SecuritySection />
-      <SocialProofSection />
       <FaqSection />
-      <CtaSection />
       <Footer />
+      <MessageModal isOpen={modal} onClose={() => setModal(false)} theme={theme} />
     </div>
   );
 }
 
 export function VariationC() {
+  const [modal, setModal] = useState(false);
   return (
     <div className={`${v.root} ${v.themeEditorial}`}>
       <TopNav />
-      <HeroC />
+      <HeroC onCtaClick={() => setModal(true)} />
       <RoutinesSection />
       <ImessageFeatures />
       <HowItWorksSection />
       <SecuritySection />
-      <SocialProofSection />
       <FaqSection />
-      <CtaSection />
       <Footer />
+      <MessageModal isOpen={modal} onClose={() => setModal(false)} theme="light" />
     </div>
   );
 }
@@ -596,7 +570,7 @@ function CloudPhoneSection() {
 }
 
 /* ---- Nav D ---- */
-function NavD() {
+function NavD({ theme, onToggleTheme }: { theme: "light" | "dark"; onToggleTheme: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 12);
@@ -616,6 +590,9 @@ function NavD() {
         <a href="#cloud-phone">Web App</a>
       </div>
       <div className={d.navRight}>
+        <button className={d.themeToggle} onClick={onToggleTheme} aria-label="Toggle theme">
+          {theme === "dark" ? <Icons.sun width={15} height={15} /> : <Icons.moon width={15} height={15} />}
+        </button>
         <a href="#" className={d.navSignIn}>Sign in</a>
         <a href="#" className={d.navCta}>
           Get started
@@ -627,39 +604,40 @@ function NavD() {
 }
 
 /* ---- Hero D ---- */
-function HeroD() {
+function HeroD({ theme, onCtaClick }: { theme: "light" | "dark"; onCtaClick: () => void }) {
   return (
     <header className={d.hero} id="product">
       <div className={d.heroShader}>
-        <ShaderCanvas mode="aurora" colors={AURORA_COOL} opacity={0.75} speed={0.9} />
+        {theme === "dark"
+          ? <ShaderCanvas mode="aurora" colors={AURORA_COOL} opacity={0.75} speed={0.9} />
+          : <ShaderCanvas mode="wave" colors={WAVE_BRAND} opacity={0.55} speed={0.7} />
+        }
       </div>
       <div className={d.heroInner}>
-        <Reveal as="div" className={d.heroEyebrow} y={14}>
-          <span className={d.heroEyebrowDot} />
-          Airtap Cloud Phone · Advanced
-        </Reveal>
-        <h1 className={d.heroTitle}>
-          Your phone,{" "}
-          <span className={d.heroTitleStrong}>running itself.</span>
-        </h1>
-        <p className={d.heroSub}>
-          A real Android device in the cloud operated by an AI agent.
-          Text it from iMessage or control it live from the web —
-          it handles the tapping, you handle the thinking.
-        </p>
-        <Reveal className={d.heroCtas} delay={0.2}>
-          <a href="#" className={d.heroPrimary}>
-            Get started free
-            <Icons.arrow width={16} height={16} />
-          </a>
-          <a href="#cloud-phone" className={d.heroOutline}>
-            Open web dashboard
-          </a>
-        </Reveal>
-        <Reveal as="div" className={d.heroNote} delay={0.3}>
-          <Icons.shield width={14} height={14} />
-          Zero passwords stored · end-to-end isolated sessions
-        </Reveal>
+        <div className={d.heroSplit}>
+          <div className={d.heroLeft}>
+            <h1 className={d.heroTitle}>
+              Text your{" "}
+              <span className={d.heroTitleStrong}>apps.</span>
+            </h1>
+            <p className={d.heroSub}>
+              Stop doing it yourself. Job applications, flight tracking, digital couponing:
+              whatever you do on your phone, just text it to Airtap and let it handle the rest.
+            </p>
+            <Reveal className={d.heroCtas} delay={0.2}>
+              <button className={d.heroPrimary} onClick={onCtaClick}>
+                Message Airtap
+                <Icons.arrow width={16} height={16} />
+              </button>
+            </Reveal>
+            <Reveal as="p" className={d.heroTagline} delay={0.25}>
+              No carrier charges — Android users can also message the agent via Telegram
+            </Reveal>
+          </div>
+          <div className={d.heroRight}>
+            <PhoneMockup captionTheme={theme === "dark" ? "dark" : "light"} />
+          </div>
+        </div>
       </div>
     </header>
   );
@@ -667,20 +645,24 @@ function HeroD() {
 
 /* ---- Variation D composition ---- */
 export function VariationD() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [modal, setModal] = useState(false);
+  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
   return (
-    <div className={d.root} data-theme="dark">
-      <NavD />
-      <HeroD />
+    <div
+      className={`${d.root} ${theme === "light" ? d.themeLight : d.themeDark}`}
+      data-theme={theme}
+    >
+      <NavD theme={theme} onToggleTheme={toggleTheme} />
+      <HeroD theme={theme} onCtaClick={() => setModal(true)} />
       <CloudPhoneSection />
       <RoutinesSection />
       <HowItWorksSection />
       <ImessageFeatures />
       <SecuritySection />
-      <StatsSection />
-      <SocialProofSection />
       <FaqSection />
-      <CtaSection />
       <Footer />
+      <MessageModal isOpen={modal} onClose={() => setModal(false)} theme={theme} />
     </div>
   );
 }

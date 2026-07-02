@@ -297,23 +297,27 @@ export function CtaSection() {
 }
 
 /* ---------- Footer ---------- */
-export function Footer() {
+export function Footer({ showBrand }: { showBrand?: boolean }) {
   return (
     <footer className={s.footer}>
       <div className={s.container}>
         <div className={s.footTop}>
           <div className={s.footBrandCol}>
             <Logo size={26} textColor="var(--fg)" />
-            <p className={s.footTag}>
-              The virtual Android cloud phone with a smart AI agent. Get anything done —
-              just text it.
-            </p>
-            <form className={s.newsletter} onSubmit={(e) => e.preventDefault()}>
-              <input className={s.newsInput} type="email" placeholder="Enter your email" aria-label="Email" />
-              <button className={s.newsBtn} aria-label="Subscribe">
-                <Icons.arrow width={18} height={18} />
-              </button>
-            </form>
+            {showBrand && (
+              <>
+                <p className={s.footTag}>
+                  The virtual Android cloud phone with a smart AI agent. Get anything done —
+                  just text it.
+                </p>
+                <form className={s.newsletter} onSubmit={(e) => e.preventDefault()}>
+                  <input className={s.newsInput} type="email" placeholder="Enter your email" aria-label="Email" />
+                  <button className={s.newsBtn} aria-label="Subscribe">
+                    <Icons.arrow width={18} height={18} />
+                  </button>
+                </form>
+              </>
+            )}
           </div>
           {FOOTER_COLUMNS.map((col) => (
             <nav className={s.footCol} key={col.title}>
