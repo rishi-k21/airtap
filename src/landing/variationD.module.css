@@ -214,6 +214,49 @@
   }
 }
 
+/* =========================================================
+   MOBILE STICKY CTA BAR
+   ========================================================= */
+.mobileStickyBar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .mobileStickyBar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    padding: 12px 16px env(safe-area-inset-bottom, 16px);
+    background: color-mix(in srgb, var(--bg, #fbfbfc) 88%, transparent);
+    backdrop-filter: saturate(160%) blur(20px);
+    -webkit-backdrop-filter: saturate(160%) blur(20px);
+    border-top: 1px solid var(--border-neutral-default);
+  }
+  .mobileStickyBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--scale-200);
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: var(--boder-radius-scale-300);
+    background: var(--button-primary-default-bg);
+    color: var(--button-primary-default-text);
+    border: 1px solid var(--button-primary-default-stroke);
+    font-size: var(--font-config-body-font-size);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+  .mobileStickyBtn:active { transform: scale(0.98); }
+  .mobileStickyBtn svg { width: 16px; height: 16px; flex-shrink: 0; }
+  /* Push page content up so sticky bar doesn't cover footer */
+  .root { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+}
+
 /* Small mobile: hide phone, fill viewport with text only */
 @media (max-width: 600px) {
   .hero {

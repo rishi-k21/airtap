@@ -369,6 +369,13 @@ export function VariationD() {
       <SecuritySection />
       <FaqSection />
       <Footer />
+      {/* Sticky mobile CTA — fixed at bottom, mobile only */}
+      <div className={d.mobileStickyBar}>
+        <button type="button" className={d.mobileStickyBtn} onClick={() => setModal(true)}>
+          Message Airtap
+          <Icons.arrow width={16} height={16} />
+        </button>
+      </div>
       <MessageModal isOpen={modal} onClose={() => setModal(false)} theme="light" />
     </div>
   );
