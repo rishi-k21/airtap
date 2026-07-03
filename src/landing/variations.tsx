@@ -318,13 +318,9 @@ function HeroD({ onCtaClick }: { onCtaClick: () => void }) {
           <div className={d.heroLeft}>
             <h1 className={d.heroTitle}>
               <SplitText text="Text your" as="span" style={{ display: "block" }} />
-              <SplitText
-                text="apps."
-                as="span"
-                className={d.heroTitleStrong}
-                style={{ display: "block" }}
-                delay={0.2}
-              />
+              <Reveal as="span" className={d.heroTitleStrong} style={{ display: "block" }} delay={0.15} y={16}>
+                apps.
+              </Reveal>
             </h1>
             <Reveal as="p" className={d.heroSub} delay={0.3}>
               Stop doing it yourself. Job applications, flight tracking, digital couponing:
