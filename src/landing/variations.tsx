@@ -44,7 +44,7 @@ const HERO_BULLETS = [
 ];
 
 /* Phone max-width calculation to keep phone inside viewport-height hero */
-const PHONE_MAX_W = "calc((100svh - 210px) * 346 / 720)";
+const PHONE_MAX_W = "min(calc((100svh - 210px) * 346 / 720), 42vw)";
 
 function LanguageSelector() {
   const [open, setOpen] = useState(false);
