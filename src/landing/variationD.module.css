@@ -701,15 +701,29 @@
   text-transform: uppercase;
 }
 
+/* ===== App Screenshots ===== */
+.appScreenshots {
+  width: 100%;
+}
+.screenshotDesktop,
+.screenshotMobile {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow:
+    0 32px 80px -16px rgba(15, 10, 40, 0.22),
+    0 8px 24px -8px rgba(113, 79, 238, 0.10),
+    0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+.screenshotMobile { display: none; }
+
 @media (max-width: 960px) {
   .cloudLayout { grid-template-columns: 1fr; }
-  .dashWrap { grid-template-columns: 170px 1fr; height: 380px; }
-  .dbPhonePanel { display: none; }
 }
-@media (max-width: 640px) {
-  .dashWrap { grid-template-columns: 1fr; height: auto; }
-  .dbSidebar { display: none; }
-  .dbMain { min-height: 280px; }
+@media (max-width: 900px) {
+  .screenshotDesktop { display: none; }
+  .screenshotMobile { display: block; }
 }
 
 /* =========================================================
