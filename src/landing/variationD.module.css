@@ -197,9 +197,33 @@
   max-height: calc(100svh - 64px - 40px);
 }
 
+/* Tablet: stack vertically, phone shows below text */
 @media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: unset;
+    overflow: visible;
+    padding: 40px 0 48px;
+  }
+  .heroInner { justify-content: flex-start; }
   .heroSplit { grid-template-columns: 1fr; }
-  .heroRight { justify-content: center; margin-top: 32px; }
+  .heroRight {
+    justify-content: center;
+    max-height: none;
+    margin-top: 32px;
+  }
+}
+
+/* Small mobile: hide phone, fill viewport with text only */
+@media (max-width: 600px) {
+  .hero {
+    height: calc(100svh - 64px);
+    min-height: 560px;
+    overflow: hidden;
+    padding: 0;
+  }
+  .heroInner { justify-content: center; }
+  .heroRight { display: none; }
 }
 
 /* Eyebrow — uses DS surface + border tokens, not a custom swatch */
