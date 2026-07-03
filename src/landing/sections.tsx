@@ -44,7 +44,7 @@ function Heading({
 }
 
 /* ---------- Routines ---------- */
-export function RoutinesSection({ onExplore }: { onExplore?: () => void }) {
+export function RoutinesSection() {
   return (
     <section className={s.section} id="routines">
       <div className={s.container}>
@@ -68,10 +68,10 @@ export function RoutinesSection({ onExplore }: { onExplore?: () => void }) {
           ))}
         </div>
         <Reveal className={s.routineFoot} delay={0.1}>
-          <button className={`${s.btn} ${s.btnPrimary}`} onClick={onExplore}>
+          <a href="https://airtap.ai/routine-templates" className={`${s.btn} ${s.btnPrimary}`}>
             Explore the full routines library
             <Icons.arrow />
-          </button>
+          </a>
         </Reveal>
       </div>
     </section>

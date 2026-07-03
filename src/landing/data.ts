@@ -208,24 +208,14 @@ export interface Feature {
 
 export const SECURITY_POINTS: Feature[] = [
   {
-    icon: "shield",
-    title: "Zero data retention",
-    body: "We never store your credentials, messages, or app data. Sessions vanish when you're done.",
-  },
-  {
-    icon: "eye-off",
-    title: "Blind to your secrets",
-    body: "The agent operates the screen but can't read what you type into login fields — passwords stay private.",
+    icon: "key",
+    title: "No passwords, ever.",
+    body: "You log into your apps the normal way, on your own account. Airtap never sees or stores your passwords.",
   },
   {
     icon: "lock",
-    title: "Isolated by design",
-    body: "Every cloud phone is a sandbox that's wiped on logout. Nothing leaks between sessions or users.",
-  },
-  {
-    icon: "key",
-    title: "You hold the keys",
-    body: "Approve sensitive actions with a tap. Revoke any app's access instantly, anytime.",
+    title: "Your phone, your phone.",
+    body: "Your cloud phone runs in its own private, isolated container. No one else can access it. Not other users, not us.",
   },
 ];
 
