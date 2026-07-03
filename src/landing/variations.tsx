@@ -31,10 +31,10 @@ const WAVE_BRAND: [number, number, number][] = [
 ];
 
 const LANGUAGES = [
-  { code: "en", label: "English" },
-  { code: "ja", label: "日本語" },
-  { code: "ko", label: "한국어" },
-  { code: "zh", label: "简体中文" },
+  { code: "en", short: "EN", label: "English" },
+  { code: "ja", short: "JA", label: "日本語" },
+  { code: "ko", short: "KO", label: "한국어" },
+  { code: "zh", short: "ZH", label: "简体中文" },
 ];
 
 const HERO_BULLETS = [
@@ -64,7 +64,7 @@ function LanguageSelector() {
   return (
     <div ref={ref} className={v.langWrap}>
       <button type="button" className={v.langBtn} onClick={() => setOpen((o) => !o)}>
-        {current.label}
+        {current.short}
         <span className={`${v.langChevron} ${open ? v.langChevronOpen : ""}`}>▾</span>
       </button>
       {open && (
@@ -294,10 +294,8 @@ function NavD({ onCtaClick }: { onCtaClick: () => void }) {
       <a href="#product" style={{ textDecoration: "none" }}>
         <Logo size={24} textColor="var(--text-title)" />
       </a>
-      <div className={d.navLinks}>
-        <a href="https://airtap.ai/technology">Technology</a>
-      </div>
       <div className={d.navRight}>
+        <a href="https://airtap.ai/technology" className={d.navTechLink}>Technology</a>
         <LanguageSelector />
         <button type="button" className={d.navCta} onClick={onCtaClick}>
           Get Started For Free

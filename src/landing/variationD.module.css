@@ -94,6 +94,17 @@
 }
 .navSignIn:hover { color: var(--text-title); }
 
+/* Technology link — sits inline in navRight */
+.navTechLink {
+  font-size: var(--font-config-body-small-font-size);
+  font-weight: 500;
+  color: var(--text-small);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+.navTechLink:hover { color: var(--text-title); }
+
 /* DS-token nav CTA — mirrors Button primary/dark semantics on an <a> */
 .navCta {
   display: inline-flex;
@@ -301,13 +312,13 @@
   gap: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--text-body);
 }
 .heroBulletItem svg { color: var(--secondary-secondary-400); flex-shrink: 0; }
 
 /* Caption under primary CTA */
 .heroCaption {
-  margin: 10px 0 0;
+  margin: 4px 0 0;
   font-size: 12px;
   color: var(--text-small);
   opacity: 0.85;
