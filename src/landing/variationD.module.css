@@ -141,7 +141,11 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(56px, 9vw, 120px) 0 clamp(64px, 10vw, 140px);
+  height: calc(100svh - 64px);
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .heroShader {
   position: absolute;
@@ -157,6 +161,10 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 clamp(20px, 5vw, 48px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Split two-column layout: text left, phone right */
@@ -174,6 +182,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  max-height: calc(100svh - 64px - 40px);
+  overflow: hidden;
 }
 
 @media (max-width: 900px) {
@@ -276,14 +286,31 @@
 }
 .heroOutline:hover { background: var(--button-outline-hover-bg); transform: translateY(-2px); }
 
-/* Carrier / Telegram tagline under CTAs */
-.heroTagline {
+/* Tick-mark bullets under body text */
+.heroBullets {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.heroBulletItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.heroBulletItem svg { color: var(--secondary-secondary-400); flex-shrink: 0; }
+
+/* Caption under primary CTA */
+.heroCaption {
+  margin: 10px 0 0;
   font-size: 12px;
-  font-weight: 400;
   color: var(--text-small);
-  line-height: 1.5;
-  margin-bottom: var(--scale-600); /* 24px */
-  max-width: 400px;
+  opacity: 0.85;
 }
 
 .heroNote {

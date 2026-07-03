@@ -67,9 +67,11 @@ const cardEmoji: Record<string, string> = {
 interface PhoneMockupProps {
   /** light or dark caption text treatment */
   captionTheme?: "light" | "dark";
+  /** Override max phone width via CSS var — used to constrain phone inside viewport-height heroes */
+  phoneMaxW?: string;
 }
 
-export function PhoneMockup({ captionTheme = "light" }: PhoneMockupProps) {
+export function PhoneMockup({ captionTheme = "light", phoneMaxW }: PhoneMockupProps) {
   const [active, setActive] = useState(0);
   const [count, setCount] = useState(0);
   const [typing, setTyping] = useState(false);
@@ -144,6 +146,7 @@ export function PhoneMockup({ captionTheme = "light" }: PhoneMockupProps) {
           "--cap-accent": conv.accent,
           "--cap-muted": captionTheme === "dark" ? "rgba(235,235,245,0.66)" : "#5b5b68",
           "--cap-dot": captionTheme === "dark" ? "rgba(255,255,255,0.22)" : "rgba(20,20,40,0.18)",
+          ...(phoneMaxW ? { "--phone-max-w": phoneMaxW } : {}),
         } as React.CSSProperties
       }
     >

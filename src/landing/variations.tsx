@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { NAV_LINKS, STATS } from "./data";
+import { useEffect, useRef, useState } from "react";
+import { STATS } from "./data";
 import { Logo, LogoMark } from "./shared/Logo";
 import { Icons } from "./shared/icons";
 import { Reveal, SplitText } from "./shared/reveal";
@@ -43,6 +43,66 @@ const WAVE_BRAND: [number, number, number][] = [
 ];
 
 /* ------------------------------------------------------------------ */
+/* SHARED CONSTANTS                                                    */
+/* ------------------------------------------------------------------ */
+const LANGUAGES = [
+  { code: "en", label: "English" },
+  { code: "ja", label: "日本語" },
+  { code: "ko", label: "한국어" },
+  { code: "zh", label: "简体中文" },
+];
+
+const HERO_BULLETS = [
+  "No carrier charges",
+  "Works via iMessage, SMS & Telegram",
+  "No app to download",
+];
+
+/* Phone max-width calculation to keep phone inside viewport-height hero:
+   available_height * (frame_width / frame_height) = 346/720 ≈ 0.481 */
+/* Accounts for phone frame + ~84px indicator area below it */
+const PHONE_MAX_W = "calc((100svh - 210px) * 346 / 720)";
+
+function LanguageSelector() {
+  const [open, setOpen] = useState(false);
+  const [lang, setLang] = useState("en");
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const current = LANGUAGES.find((l) => l.code === lang)!;
+
+  return (
+    <div ref={ref} className={v.langWrap}>
+      <button type="button" className={v.langBtn} onClick={() => setOpen((o) => !o)}>
+        {current.label}
+        <span className={`${v.langChevron} ${open ? v.langChevronOpen : ""}`}>▾</span>
+      </button>
+      {open && (
+        <div className={v.langDropdown}>
+          {LANGUAGES.map((l) => (
+            <button
+              key={l.code}
+              type="button"
+              className={`${v.langOption} ${l.code === lang ? v.langOptionActive : ""}`}
+              onClick={() => { setLang(l.code); setOpen(false); }}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /* NAV                                                                 */
 /* ------------------------------------------------------------------ */
 function TopNav({
@@ -67,11 +127,7 @@ function TopNav({
         <Logo size={24} textColor="var(--fg)" />
       </a>
       <div className={v.navLinks}>
-        {NAV_LINKS.map((l) => (
-          <a key={l.href} href={l.href}>
-            {l.label}
-          </a>
-        ))}
+        <a href="https://airtap.ai/technology">Technology</a>
       </div>
       <div className={v.navRight}>
         {onToggleTheme && (
@@ -85,8 +141,9 @@ function TopNav({
             {theme === "dark" ? <Icons.sun width={17} height={17} /> : <Icons.moon width={17} height={17} />}
           </button>
         )}
+        <LanguageSelector />
         <button type="button" className={v.navCta} onClick={onCtaClick}>
-          Get started
+          Get Started For Free
           <Icons.arrow width={15} height={15} />
         </button>
       </div>
@@ -205,15 +262,28 @@ function HeroA({ onCtaClick }: { onCtaClick: () => void }) {
               Stop doing it yourself. Job applications, flight tracking, digital couponing:
               whatever you do on your phone, just text it to Airtap and let it handle the rest.
             </Reveal>
+            <Reveal delay={0.35}>
+              <ul className={v.heroBullets}>
+                {HERO_BULLETS.map((b) => (
+                  <li key={b} className={v.heroBulletItem}>
+                    <Icons.check width={13} height={13} />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
             <Reveal className={v.heroCtas} delay={0.4}>
               <button className={`${s.btn} ${s.btnPrimary}`} onClick={onCtaClick}>
                 Message Airtap
                 <Icons.arrow />
               </button>
             </Reveal>
+            <Reveal as="p" className={v.heroCaption} delay={0.45}>
+              Free Sign Up. No credit card or payment required.
+            </Reveal>
           </div>
           <Reveal y={50} delay={0.2}>
-            <PhoneMockup captionTheme="light" />
+            <PhoneMockup captionTheme="light" phoneMaxW={PHONE_MAX_W} />
           </Reveal>
         </div>
       </div>
@@ -251,16 +321,29 @@ function HeroB({ theme = "dark", onCtaClick }: { theme?: "dark" | "light"; onCta
             Stop doing it yourself. Job applications, flight tracking, digital couponing:
             whatever you do on your phone, just text it to Airtap and let it handle the rest.
           </Reveal>
+          <Reveal delay={0.35}>
+            <ul className={v.heroBullets} style={{ alignItems: "center" }}>
+              {HERO_BULLETS.map((b) => (
+                <li key={b} className={v.heroBulletItem}>
+                  <Icons.check width={13} height={13} />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
           <Reveal className={v.heroCtas} delay={0.4}>
             <button className={`${s.btn} ${s.btnPrimary}`} onClick={onCtaClick}>
               Message Airtap
               <Icons.arrow />
             </button>
           </Reveal>
+          <Reveal as="p" className={v.heroCaption} delay={0.45} style={{ textAlign: "center" }}>
+            Free Sign Up. No credit card or payment required.
+          </Reveal>
 
           <div className={v.stageWrap}>
             <Reveal className={v.stagePhone} y={50} delay={0.25}>
-              <PhoneMockup captionTheme="dark" />
+              <PhoneMockup captionTheme="dark" phoneMaxW="260px" />
             </Reveal>
           </div>
         </div>
@@ -281,7 +364,7 @@ function HeroC({ onCtaClick }: { onCtaClick: () => void }) {
       <div className={v.heroInner}>
         <div className={v.heroMag}>
           <Reveal className={v.magPhone} y={50} delay={0.2}>
-            <PhoneMockup captionTheme="light" />
+            <PhoneMockup captionTheme="light" phoneMaxW={PHONE_MAX_W} />
           </Reveal>
           <div className={v.magType}>
             <Reveal as="div" className={v.heroPill} y={14}>
@@ -302,11 +385,24 @@ function HeroC({ onCtaClick }: { onCtaClick: () => void }) {
               Stop doing it yourself. Job applications, flight tracking, digital couponing:
               whatever you do on your phone, just text it to Airtap and let it handle the rest.
             </Reveal>
+            <Reveal delay={0.4}>
+              <ul className={v.heroBullets}>
+                {HERO_BULLETS.map((b) => (
+                  <li key={b} className={v.heroBulletItem}>
+                    <Icons.check width={13} height={13} />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
             <Reveal className={v.heroCtas} delay={0.46}>
               <button className={`${s.btn} ${s.btnPrimary}`} onClick={onCtaClick}>
                 Message Airtap
                 <Icons.arrow />
               </button>
+            </Reveal>
+            <Reveal as="p" className={v.heroCaption} delay={0.52}>
+              Free Sign Up. No credit card or payment required.
             </Reveal>
             <div className={v.magStats}>
               {STATS.slice(0, 3).map((st, i) => (
@@ -583,17 +679,15 @@ function NavD({ theme, onToggleTheme, onCtaClick }: { theme: "light" | "dark"; o
         <Logo size={24} textColor="var(--text-title)" />
       </a>
       <div className={d.navLinks}>
-        {NAV_LINKS.map((l) => (
-          <a key={l.href} href={l.href}>{l.label}</a>
-        ))}
-        <a href="#cloud-phone">Web App</a>
+        <a href="https://airtap.ai/technology">Technology</a>
       </div>
       <div className={d.navRight}>
         <button className={d.themeToggle} onClick={onToggleTheme} aria-label="Toggle theme">
           {theme === "dark" ? <Icons.sun width={15} height={15} /> : <Icons.moon width={15} height={15} />}
         </button>
+        <LanguageSelector />
         <button type="button" className={d.navCta} onClick={onCtaClick}>
-          Get started
+          Get Started For Free
           <Icons.arrow width={14} height={14} />
         </button>
       </div>
@@ -622,18 +716,26 @@ function HeroD({ theme, onCtaClick }: { theme: "light" | "dark"; onCtaClick: () 
               Stop doing it yourself. Job applications, flight tracking, digital couponing:
               whatever you do on your phone, just text it to Airtap and let it handle the rest.
             </p>
+            <ul className={d.heroBullets}>
+              {HERO_BULLETS.map((b) => (
+                <li key={b} className={d.heroBulletItem}>
+                  <Icons.check width={13} height={13} />
+                  {b}
+                </li>
+              ))}
+            </ul>
             <Reveal className={d.heroCtas} delay={0.2}>
               <button className={d.heroPrimary} onClick={onCtaClick}>
                 Message Airtap
                 <Icons.arrow width={16} height={16} />
               </button>
             </Reveal>
-            <Reveal as="p" className={d.heroTagline} delay={0.25}>
-              No carrier charges — Android users can also message the agent via Telegram
+            <Reveal as="p" className={d.heroCaption} delay={0.25}>
+              Free Sign Up. No credit card or payment required.
             </Reveal>
           </div>
           <div className={d.heroRight}>
-            <PhoneMockup captionTheme={theme === "dark" ? "dark" : "light"} />
+            <PhoneMockup captionTheme={theme === "dark" ? "dark" : "light"} phoneMaxW={PHONE_MAX_W} />
           </div>
         </div>
       </div>
