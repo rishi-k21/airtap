@@ -1,5 +1,5 @@
 /* =========================================================
-   MESSAGE MODAL — "Scan to text Airtap"
+   MESSAGE MODAL — "Message Airtap"
    Light variant is default; .modalDark + dark-suffixed
    modifier classes flip to DS dark tokens.
    ========================================================= */
@@ -70,6 +70,22 @@
   to   { opacity: 1; transform: translateY(0)    scale(1);    }
 }
 
+@keyframes slideUpSheet {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* Sheet handle — visible only on mobile bottom sheet */
+.sheetHandle {
+  display: none;
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: #d1d5db;
+  margin: 0 auto 16px;
+}
+.modalDark .sheetHandle { background: #4b5268; }
+
 /* Close button */
 .close {
   position: absolute;
@@ -101,14 +117,14 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   color: #111827;
-  margin: 0 0 10px;
+  margin: 0 0 20px;
   line-height: 1.2;
   position: relative;
   z-index: 1;
 }
 .modalDark .title { color: #f3f3f6; }
 
-/* Subtitle */
+/* Subtitle (inside desktop QR section) */
 .subtitle {
   font-size: 15px;
   font-weight: 400;
@@ -147,7 +163,7 @@
 .directText {
   font-size: 15px;
   color: #6b7280;
-  margin: 0 0 22px;
+  margin: 0 0 4px;
   position: relative;
   z-index: 1;
 }
@@ -168,7 +184,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin: 0 0 18px;
+  margin: 16px 0;
   z-index: 1;
 }
 .divider::before,
@@ -189,17 +205,17 @@
 }
 .dividerLabelDark { color: #6b7280; }
 
-/* Web app button — outline style */
+/* Web app button — DS outline style */
 .webappBtn {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
   width: 100%;
-  padding: 16px 20px;
-  border-radius: 14px;
-  background: transparent;
-  border: 1.5px solid #714fee;
+  padding: 14px 20px;
+  border-radius: var(--boder-radius-scale-300, 8px);
+  background: var(--button-outline-default-bg, transparent);
+  border: var(--boder-width-sm, 1px) solid var(--button-outline-default-border, #714fee);
   text-decoration: none;
   transition: background 0.18s ease, border-color 0.18s ease;
   position: relative;
@@ -207,8 +223,8 @@
   cursor: pointer;
 }
 .webappBtn:hover {
-  background: rgba(113, 79, 238, 0.06);
-  border-color: #5a3fd6;
+  background: var(--button-outline-hover-bg, rgba(113, 79, 238, 0.06));
+  border-color: var(--button-outline-hover-border, #714fee);
 }
 
 .webappBtnDark {
@@ -222,7 +238,7 @@
 .webappBtnTitle {
   font-size: 16px;
   font-weight: 700;
-  color: #714fee;
+  color: var(--button-outline-default-text, #714fee);
   letter-spacing: -0.2px;
 }
 .webappBtnDark .webappBtnTitle { color: #a590f4; }
@@ -240,60 +256,65 @@
   display: none;
 }
 
-.mobileSubtitle {
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.55;
-  color: #6b7280;
-  margin: 0 auto 20px;
-  max-width: 360px;
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-.mobileSubtitleDark { color: #9ca3af; }
-
-/* Primary SMS button — mobile only */
+/* Primary SMS button — DS primary style, mobile only */
 .smsBtnMobile {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3px;
   width: 100%;
-  padding: 16px 20px;
-  border-radius: 14px;
-  background: #714fee;
-  border: none;
+  padding: 14px 20px;
+  border-radius: var(--boder-radius-scale-300, 8px);
+  background: var(--button-primary-default-bg, #111827);
+  border: var(--boder-width-sm, 1px) solid var(--button-primary-default-stroke, #111827);
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.18s ease, transform 0.12s ease;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
   position: relative;
   z-index: 1;
-  margin-bottom: 20px;
 }
-.smsBtnMobile:hover  { background: #5a3fd6; }
+.smsBtnMobile:hover {
+  background: var(--button-primary-hover-bg, #1f2937);
+  border-color: var(--button-primary-hover-border, #1f2937);
+}
 .smsBtnMobile:active { transform: scale(0.98); }
-
-.smsBtnMobileDark { background: #714fee; }
-.smsBtnMobileDark:hover { background: #5a3fd6; }
 
 .smsBtnMobileLabel {
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--button-primary-default-text, #ffffff);
   letter-spacing: -0.2px;
 }
 
 .smsBtnMobilePhone {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--button-primary-default-text, #ffffff);
   font-weight: 400;
   line-height: normal;
+  opacity: 0.65;
 }
 
+/* ── Mobile: bottom sheet ──────────────────────────────── */
 @media (max-width: 640px) {
+  .backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal {
+    max-width: 100%;
+    border-radius: 24px 24px 0 0;
+    padding: 12px 20px calc(env(safe-area-inset-bottom, 0px) + 32px);
+    animation: slideUpSheet 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Hide gradient bar — handle replaces it */
+  .modal::before { display: none; }
+
+  .sheetHandle { display: block; }
+
+  .title { font-size: 22px; margin-top: 4px; }
+
   .qrSection  { display: none; }
   .mobileSection { display: block; }
-  .modal { padding: 32px 20px 24px; border-radius: 20px; }
-  .title { font-size: 22px; }
 }

@@ -50,14 +50,32 @@ export function MessageModal({ isOpen, onClose, theme = "light" }: MessageModalP
       onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
-      aria-label="Scan to text Airtap"
+      aria-label="Message Airtap"
     >
       <div className={`${styles.modal} ${isDark ? styles.modalDark : ""}`}>
+        {/* Handle pill — visible only on mobile bottom sheet */}
+        <div className={styles.sheetHandle} />
+
         <button className={`${styles.close} ${isDark ? styles.closeDark : ""}`} onClick={onClose} aria-label="Close">
           ×
         </button>
 
         <h2 className={styles.title}>Message Airtap</h2>
+
+        {/* Web app button — first on all sizes */}
+        <a
+          href={WEBAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.webappBtn} ${isDark ? styles.webappBtnDark : ""}`}
+        >
+          <span className={styles.webappBtnTitle}>Log in to the web app</span>
+          <span className={styles.webappBtnSub}>airtap.ai/app</span>
+        </a>
+
+        <div className={`${styles.divider} ${isDark ? styles.dividerDark : ""}`}>
+          <span className={`${styles.dividerLabel} ${isDark ? styles.dividerLabelDark : ""}`}>or</span>
+        </div>
 
         {/* Desktop: QR code section */}
         <div className={styles.qrSection}>
@@ -81,9 +99,6 @@ export function MessageModal({ isOpen, onClose, theme = "light" }: MessageModalP
 
         {/* Mobile: primary SMS button */}
         <div className={styles.mobileSection}>
-          <p className={`${styles.mobileSubtitle} ${isDark ? styles.mobileSubtitleDark : ""}`}>
-            Tap below to open your messaging app with Airtap's number ready to go.
-          </p>
           <a
             href={SMS_URL}
             className={`${styles.smsBtnMobile} ${isDark ? styles.smsBtnMobileDark : ""}`}
@@ -92,20 +107,6 @@ export function MessageModal({ isOpen, onClose, theme = "light" }: MessageModalP
             <span className={styles.smsBtnMobilePhone}>{PHONE_DISPLAY}</span>
           </a>
         </div>
-
-        <div className={`${styles.divider} ${isDark ? styles.dividerDark : ""}`}>
-          <span className={`${styles.dividerLabel} ${isDark ? styles.dividerLabelDark : ""}`}>or</span>
-        </div>
-
-        <a
-          href={WEBAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${styles.webappBtn} ${isDark ? styles.webappBtnDark : ""}`}
-        >
-          <span className={styles.webappBtnTitle}>Log in to the web app</span>
-          <span className={styles.webappBtnSub}>For advanced use cases, go to airtap.ai/app</span>
-        </a>
       </div>
     </div>
   );
