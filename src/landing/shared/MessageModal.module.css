@@ -234,7 +234,64 @@
 }
 .webappBtnDark .webappBtnSub { color: #6b7280; }
 
-@media (max-width: 520px) {
-  .modal { padding: 32px 20px 24px; border-radius: 18px; }
+/* Mobile section — hidden on desktop, visible on mobile */
+.mobileSection {
+  display: none;
+}
+
+.mobileSubtitle {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #6b7280;
+  margin: 0 auto 20px;
+  max-width: 360px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.mobileSubtitleDark { color: #9ca3af; }
+
+/* Primary SMS button — mobile only */
+.smsBtnMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: #714fee;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.12s ease;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+.smsBtnMobile:hover  { background: #5a3fd6; }
+.smsBtnMobile:active { transform: scale(0.98); }
+
+.smsBtnMobileDark { background: #714fee; }
+.smsBtnMobileDark:hover { background: #5a3fd6; }
+
+.smsBtnMobileLabel {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+}
+
+.smsBtnMobilePhone {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+}
+
+@media (max-width: 640px) {
+  .qrSection  { display: none; }
+  .mobileSection { display: block; }
+  .modal { padding: 32px 20px 24px; border-radius: 20px; }
   .title { font-size: 22px; }
 }

@@ -57,25 +57,41 @@ export function MessageModal({ isOpen, onClose, theme = "light" }: MessageModalP
           ×
         </button>
 
-        <h2 className={styles.title}>Scan to text Airtap</h2>
-        <p className={styles.subtitle}>
-          Point your phone's camera at the code. It opens your messaging app
-          with Airtap's number ready to go.
-        </p>
+        <h2 className={styles.title}>Message Airtap</h2>
 
-        <div className={`${styles.qrWrap} ${isDark ? styles.qrWrapDark : ""}`}>
-          <canvas ref={canvasRef} />
+        {/* Desktop: QR code section */}
+        <div className={styles.qrSection}>
+          <p className={styles.subtitle}>
+            Point your phone's camera at the code. It opens your messaging app
+            with Airtap's number ready to go.
+          </p>
+          <div className={`${styles.qrWrap} ${isDark ? styles.qrWrapDark : ""}`}>
+            <canvas ref={canvasRef} />
+          </div>
+          <p className={styles.directText}>
+            Or text us directly at{" "}
+            <a
+              href={SMS_URL}
+              className={`${styles.phone} ${isDark ? styles.phoneDark : ""}`}
+            >
+              {PHONE_DISPLAY}
+            </a>
+          </p>
         </div>
 
-        <p className={styles.directText}>
-          Or text us directly at{" "}
+        {/* Mobile: primary SMS button */}
+        <div className={styles.mobileSection}>
+          <p className={`${styles.mobileSubtitle} ${isDark ? styles.mobileSubtitleDark : ""}`}>
+            Tap below to open your messaging app with Airtap's number ready to go.
+          </p>
           <a
             href={SMS_URL}
-            className={`${styles.phone} ${isDark ? styles.phoneDark : ""}`}
+            className={`${styles.smsBtnMobile} ${isDark ? styles.smsBtnMobileDark : ""}`}
           >
-            {PHONE_DISPLAY}
+            <span className={styles.smsBtnMobileLabel}>Text Airtap</span>
+            <span className={styles.smsBtnMobilePhone}>{PHONE_DISPLAY}</span>
           </a>
-        </p>
+        </div>
 
         <div className={`${styles.divider} ${isDark ? styles.dividerDark : ""}`}>
           <span className={`${styles.dividerLabel} ${isDark ? styles.dividerLabelDark : ""}`}>or</span>
