@@ -231,6 +231,7 @@
   font-size: 13px;
   color: #9ca3af;
   font-weight: 400;
+  line-height: normal;
 }
 .webappBtnDark .webappBtnSub { color: #6b7280; }
 
@@ -287,6 +288,7 @@
   font-size: 13px;
   color: rgba(255, 255, 255, 0.75);
   font-weight: 400;
+  line-height: normal;
 }
 
 @media (max-width: 640px) {
