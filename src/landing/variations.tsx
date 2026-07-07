@@ -192,12 +192,12 @@ const WEB_FEATURES = [
   {
     icon: "repeat" as const,
     title: "Visual routine builder",
-    body: "Build, edit and schedule routines from a drag-and-drop dashboard — no prompting required.",
+    body: "Build, edit and schedule routines through a form or directly via prompt — no code required.",
   },
   {
     icon: "check" as const,
     title: "Full task history",
-    body: "Every action the agent took, step by step. Replay, audit or resume any task from the timeline.",
+    body: "Every action the agent took, step by step — with a status summary at the end of each task.",
   },
   {
     icon: "bolt" as const,
