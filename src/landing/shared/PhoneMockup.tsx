@@ -15,10 +15,11 @@ const CellularIcon = () => (
   </svg>
 );
 const WifiIcon = () => (
-  <svg width="17" height="12" viewBox="0 0 17 13" fill="#000">
-    <path d="M8.5 2.2c2.6 0 5 1 6.8 2.7l1.3-1.4A11.3 11.3 0 0 0 8.5.2 11.3 11.3 0 0 0 .4 3.5l1.3 1.4A9.3 9.3 0 0 1 8.5 2.2Z" />
-    <path d="M8.5 6c1.5 0 2.9.6 4 1.6l1.3-1.4a7.6 7.6 0 0 0-10.6 0L4.5 7.6A5.6 5.6 0 0 1 8.5 6Z" />
-    <path d="M8.5 9.7 10.8 7.3a4 4 0 0 0-4.6 0L8.5 9.7Z" />
+  <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+    <circle cx="8" cy="11" r="1.25" fill="#000" />
+    <path d="M5.5 9A2.83 2.83 0 0 1 10.5 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M3 7A7.25 7.25 0 0 1 13 7" stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M.5 4.5A12.5 12.5 0 0 1 15.5 4.5" stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 const BatteryIcon = () => (

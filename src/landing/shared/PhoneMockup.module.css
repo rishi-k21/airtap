@@ -55,7 +55,7 @@
 /* Dynamic Island */
 .island {
   position: absolute;
-  top: 11px;
+  top: 14px;
   left: 50%;
   transform: translateX(-50%);
   width: 31%;
@@ -157,12 +157,16 @@
 /* ============ Messages ============ */
 .messages {
   flex: 1;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   padding: 8px 14px 4px;
   display: flex;
   flex-direction: column;
   background: var(--imsg-bg);
 }
+.messages::-webkit-scrollbar { display: none; }
 .timestamp {
   text-align: center;
   font-size: 11px;
@@ -312,7 +316,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px 4px;
+  padding: 8px 12px 22px;
   background: rgba(247, 247, 247, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
