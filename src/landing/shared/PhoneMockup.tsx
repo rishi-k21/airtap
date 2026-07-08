@@ -14,14 +14,7 @@ const CellularIcon = () => (
     <rect x="15" y="0.5" width="3" height="11.5" rx="1" />
   </svg>
 );
-const WifiIcon = () => (
-  <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-    <circle cx="8" cy="11" r="1.25" fill="#000" />
-    <path d="M5.5 9A2.83 2.83 0 0 1 10.5 9" stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M3 7A7.25 7.25 0 0 1 13 7" stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M.5 4.5A12.5 12.5 0 0 1 15.5 4.5" stroke="#000" strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
-);
+
 const BatteryIcon = () => (
   <svg width="27" height="13" viewBox="0 0 27 13" fill="none">
     <rect x="0.5" y="0.8" width="22" height="11.4" rx="3.3" stroke="#000" strokeOpacity="0.4" />
@@ -160,7 +153,6 @@ export function PhoneMockup({ captionTheme = "light", phoneMaxW }: PhoneMockupPr
               <span className={styles.statusTime}>9:41</span>
               <span className={styles.statusIcons}>
                 <CellularIcon />
-                <WifiIcon />
                 <BatteryIcon />
               </span>
             </div>
